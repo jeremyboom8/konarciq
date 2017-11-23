@@ -1,25 +1,24 @@
 <div class="index-content">
   <div class="row profile-cards">
-    <% 200.times do %>
-      <% @listings.each do |listing| %>
 
-        <!-- Start of the card -->
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
-          <div class="card profile-card">
-            <div class="profile-card-cover" style="background-image: url('<%= cl_image_path listing.photo.path %>')"></div>
-            <%= cl_image_tag listing.user.photo.path, class: "profile-card-avatar", alt: "Picture of #{listing.user.first_name}" %>
-            <div class="profile-card-body">
-              <h4 class="profile-card-first-name"><%= listing.title %></h4>
-              <h6 class="profile-card-interests">Starting from €<%= listing.price %></h6>
+    <% @listings.each do |listing| %>
 
-              <p class="profile-card-description"><%= listing.caption %></p>
-            </div>
-            <%=  link_to "", listing_path(listing), class: "profile-card-link" %>
+      <!-- Start of the card -->
+      <div class="col-xs-12 col-md-6 col-lg-4">
+        <div class="card profile-card">
+          <div class="profile-card-cover" style="background-image: url('<%= cl_image_path listing.photo.path %>')"></div>
+          <%= cl_image_tag listing.user.photo.path, class: "profile-card-avatar" %>
+          <div class="profile-card-body">
+            <h4 class="profile-card-first-name"><%= listing.title %></h4>
+            <h6 class="profile-card-interests">Starting from €<%= listing.price %></h6>
+
+            <p class="profile-card-description"><%= listing.caption %></p>
           </div>
+          <%=  link_to "", listing_path(listing), class: "profile-card-link" %>
         </div>
-        <!-- Start of the card -->
+      </div>
+      <!-- Start of the card -->
 
-      <% end %>
     <% end %>
   </div>
 

@@ -1,16 +1,27 @@
+.index-content {
+  display: flex;
+  min-width: 100vw;
+}
+
 #map {
   flex: 0 0 450px;
   height: 100vh;
   position: sticky !important;
   top: 0 !important;
-}
-.index-content {
-  display: flex;
+  right: 0 !important;
 }
 
 // Added margin so the cards don't stick to the sides
+.profile-card-link {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
 .profile-cards {
   margin: 15px;
+  width: 100%;
 }
 
 // The CSS for each card
@@ -31,13 +42,6 @@
   // filter: grayscale(1);
 }
 
-.profile-card-link {
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-}
 
 .profile-card-avatar {
   border-radius: 50%;
