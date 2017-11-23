@@ -1,13 +1,13 @@
 <% @listings.each do |listing| %>
-  <%=  link_to (listing_path(listing)) do %>
-    <div class="profile-card-cover" style="background-image: url('<%= cl_image_path listing.photo.path %>')">
-    </div>
-    <%= cl_image_tag listing.user.photo.path, class: "profile-card-avatar", alt: "Picture of #{listing.user.first_name}" %>
+  <div class="profile-card-cover" style="background-image: url('<%= cl_image_path listing.photo.path %>')">
+  </div>
+  <%= cl_image_tag listing.user.photo.path, class: "profile-card-avatar", alt: "Picture of #{listing.user.first_name}" %>
 
-      <p class="profile-card-description"><%= listing.description %></p>
-      <p class="profile-card-description"><%= listing.address %></p>
-    <%=  link_to "", listing_path(listing), class: "profile-card-link" %>
-  <% end %>
+    <h4 class="profile-card-first-name"><%= listing.title %></h4>
+    <h6 class="profile-card-interests"><%= listing.price %></h6>
+
+    <p class="profile-card-description"><%= listing.description %></p>
+  <%=  link_to "", listing_path(listing), class: "profile-card-link" %>
 <% end %>
 
 <div class="content">
@@ -19,13 +19,11 @@
         <!-- Start of the card -->
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
           <div class="card profile-card">
-
             <div class="profile-card-cover" style="background-image: url('<%= cl_image_path listing.photo.path %>')">
-            <%= cl_image_tag listing.user.photo.path, class: "profile-card-avatar", alt: "Picture of #{listing.user.first_name}" %>
+            <%= image_tag "jane.jpg", class: "profile-card-avatar", alt: "Picture of Jane Smith" %>
             <div class="profile-card-body">
-              <h4 class="profile-card-first-name"><%= listing.title %></h4>
-              <h6 class="profile-card-interests"><%= listing.caption %></h6>
-              <h6 class="profile-card-interests">"Starting from <%= listing.price %> EUR"</h6>
+              <h4 class="profile-card-first-name">Jane Smith</h4>
+              <h6 class="profile-card-interests">WALKING | READING</h6>
 
               <!-- TODO: Limit Descrition below to 80 characters, end with ... -->
               <p class="profile-card-description">Dreamcatcher do tote bag hoodie four dollar  pinterest raw denim paleo commodo.</p>
