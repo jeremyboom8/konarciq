@@ -1,1 +1,21 @@
 // Specific CSS for your home-page
+.banner {
+  flex-direction: column;
+  background-color: #000;
+  display: flex;
+}
+
+.banner h1, .banner p {
+  color: white;
+}
+
+.banner {
+  height: 50vh;
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575px) {
+  .banner h1 {
+    font-size: 35px;
+  }
+}
