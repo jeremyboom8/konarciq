@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts "Starting seed..."
-  User.destroy_all
-  Listing.destroy_all
   Booking.destroy_all
+  Listing.destroy_all
+  User.destroy_all
 puts "Database dropped"
 
 
