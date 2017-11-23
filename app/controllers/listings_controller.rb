@@ -3,14 +3,6 @@ class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
   def index
-    @listing = Listing.all
-  end
-
-  def new
-    @listing = Listing.new
-  end
-
-  def index
     if params[:query].present?
       @query = params[:query]
       @listings = Listing.where("'%#{params[:query]}%'")
@@ -19,14 +11,20 @@ class ListingsController < ApplicationController
     end
   end
 
+  def new
+    @listing = Listing.new
+  end
+
   def show
+    @booking = Booking.new
     @listing = Listing.find(params[:id])
   end
 
-  def create
-    @flat = Flat.new(flat_params)
-    if @flat.save
-      redirect_to flats_path
+ def create
+    @listing = Listing.new(listing_params)
+    @listing.user = current_user
+    if @listing.save
+      redirect_to listing_path(@listing)
     else
       render :new
     end
@@ -49,7 +47,7 @@ class ListingsController < ApplicationController
   private
 
   def listing_params
-    params.require(:listing).permit(:name, :address, :description)
+    params.require(:listing).permit(:name, :address, :description, :photos [])
   end
 
   def set_listing

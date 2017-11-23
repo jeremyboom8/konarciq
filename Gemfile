@@ -1,11 +1,18 @@
 source 'https://rubygems.org'
 ruby '2.3.5'
 
+# Bootstrap and icons
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'sprockets-rails', '~> 3.0', '>= 3.0.4'
 gem 'ionicons-rails'
-gem 'figaro'
 
+# Photo uploading with Cloudinary
+gem 'cloudinary'
+gem 'attachinary', github: 'assembler/attachinary'
+gem 'jquery-fileupload-rails'
+gem 'coffee-rails'
+
+gem 'figaro'
 gem 'devise'
 gem 'jbuilder', '~> 2.0'
 gem 'pg'

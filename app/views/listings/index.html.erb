@@ -1,23 +1,39 @@
-<div class="content">
+<% @listings.each do |listing| %>
+  <%=  link_to (listing_path(listing)) do %>
+    <%= listing.title %>
+    <%= cl_image_tag listing.photo.path, crop: :thumb %>
+    <%= "#{listing.price} EUR" %>
+    <%=  listing.address %>
+    <%=  cl_image_tag listing.user.photo.path %>
+  <% end %>
+<% end %>
+
+<div class="container">
   <div class="row profile-cards">
 
-    <% 20.times do %>
+    <% @listings.each do |listing| %>
 
       <!-- Start of the card -->
       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
-        <div class="card profile-card">
-          <div class="profile-card-cover" style="background-image: url('http://homelandagro.com/images/naturegallery/fashion-forest-trees-nature.jpg')">
-          </div>
-          <%= image_tag "jane.jpg", class: "profile-card-avatar", alt: "Picture of Jane Smith" %>
-          <div class="profile-card-body">
-            <h4 class="profile-card-first-name">Jane Smith</h4>
-            <h6 class="profile-card-interests">WALKING | READING</h6>
+        <%=  link_to (listing_path(listing)) do %>
+          <div class="card profile-card">
 
-            <!-- TODO: Limit Descrition below to 80 characters, end with ... -->
-            <p class="profile-card-description">Dreamcatcher do tote bag hoodie four dollar  pinterest raw denim paleo commodo.</p>
-            <a class="btn btn-primary btn-block" style="color: white; background-color: #20c997; border-color: #20c997;">View profile</a>
+
+            <div class="profile-card-cover" style="background-image: url('<%= cl_image_path listing.photo.path %>')">
+
+            </div>
+            <%= image_tag "jane.jpg", class: "profile-card-avatar", alt: "Picture of Jane Smith" %>
+            <div class="profile-card-body">
+              <h4 class="profile-card-first-name"><%= listing.short_title %></h4>
+              <h6 class="profile-card-interests">From <%= listing.price %> EUR</h6>
+
+              <!-- TODO: Limit Descrition below to 80 characters, end with ... -->
+              <p class="profile-card-description"><%= listing.description %></p>
+              <p class="profile-card-description"><%= listing.address %></p>
+            </div>
+            <%=  link_to "", listing_path(listing), class: "profile-card-link" %>
           </div>
-        </div>
+        <% end %>
       </div>
       <!-- Start of the card -->
 
@@ -26,28 +42,22 @@
 
 
   <div id="map"></div>
-
-
-  <!-- Gmaps js: building the map -->
-  <script>
-    function initMap() {
-      // Create a map object and specify the DOM element for display.
-      var map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: 52.5206, lng: 13.4098},
-        scrollwheel: false,
-        zoom: 8
-      });
-    }
-  </script>
-  <!-- Gmaps JavaScript -->
-  <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzER7O10ZOUp7FloJzMe2r8X1GIQhgt7Q&callback=initMap">
-  </script>
 </div>
 
 
-
-<!--
-<h1>Listings#index</h1>
-<p>Find me in app/views/listings/index.html.erb</p>
- -->
+<!-- Gmaps js: building the map -->
+<script>
+  function initMap() {
+    // Create a map object and specify the DOM element for display.
+    var map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 52.5206, lng: 13.4098},
+      scrollwheel: false,
+      zoom: 8
+    });
+  }
+</script>
+<!-- Gmaps JavaScript -->
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzER7O10ZOUp7FloJzMe2r8X1GIQhgt7Q&callback=initMap">
+</script>
+</div>
