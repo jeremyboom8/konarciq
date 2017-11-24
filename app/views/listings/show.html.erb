@@ -1,3 +1,22 @@
+<% if @listing.photo? %>
+  <%= cl_image_tag @listing.photo.path, width: 300, crop: :fill %>
+<% end %>
+
+<%= cl_image_tag @listing.user.photo.path %>
+
+<%= @listing.title %>
+<%= @listing.caption %>
+<%= @listing.description %>
+<%= @listing.address %>
+
+<!-- Booking form -->
+<%= @listing.price %>
+<%= simple_form_for [@listing, @booking] do |f| %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.submit "Book a spot" %>
+<% end %>
+
 <div class="wrapper">
 
   <div class="page-header" style="background-image: url('assets/img/cover.jpg')">
