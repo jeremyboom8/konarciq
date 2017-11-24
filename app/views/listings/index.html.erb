@@ -5,7 +5,7 @@
       <% @listings.each do |listing| %>
 
         <!-- Start of the card -->
-        <div class="col-xs-12 col-md-6 col-lg-4">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
           <div class="card profile-card">
             <div class="profile-card-cover" style="background-image: url('<%= cl_image_path listing.photo.path %>')"></div>
             <%= cl_image_tag listing.user.photo.path, crop: :fill, width: 100, height: 100, class: "profile-card-avatar" %>
