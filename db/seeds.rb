@@ -15,13 +15,13 @@ puts "Database dropped"
 
 ######### users ########################################################
 
-hillary = User.create(first_name: "Hillary", last_name: "Smith", photo_url: "https://www.biography.com/.image/t_share/MTE4MDAzNDEwMDU4NTc3NDIy/hillary-clinton-9251306-2-402.jpg", email: "hillary@gmail.com", password: "123456")
-jeremy  = User.create(first_name: "Jeremy", last_name: "Boom", photo_url: "https://pbs.twimg.com/profile_images/767015623184482304/5qhj67dd_400x400.jpg", email: "jeremy@gmail.com", password: "123456")
-john  = User.create(first_name: "Johnny", last_name: "Smith", photo_url: "http://r.fod4.com/c=sq/s=w200,pd1/o=80/http://p.fod4.com/p/channels/pzwrl/profile/s=w1200/o=95/m9oNs9QJQIi9QbUoNTvH_john-oliver-hbo.jpg", email: "john@gmail.com", password: "123456")
-cameron = User.create(first_name: "Cameron", last_name: "Smith", photo_url: "https://www.famousbirthdays.com/headshots/cameron-boyce-3.jpg", email: "cameron@gmail.com", password: "123456")
-bill = User.create(first_name: "Bill", last_name: "Smith", photo_url: "https://pbs.twimg.com/profile_images/451207149478096896/HoMUOmyu.jpeg", email: "bill@gmail.com", password: "123456")
-angela = User.create(first_name: "Angela", last_name: "Smith", photo_url: "https://specials-images.forbesimg.com/imageserve/573c8bed4bbe6f6361853a34/416x416.jpg?background=000000&cropX1=0&cropX2=744&cropY1=151&cropY2=895", email: "angela@gmail.com", password: "123456")
-joanna = User.create(first_name: "Joanna", last_name: "Smith", photo_url: "http://media.thisisinsider.com/images/58e2ae9885086820008b48c3-750-810.jpg", email: "joanna@gmail.com", password: "123456")
+hillary = User.create(first_name: "Hillary", last_name: "Parks", photo_url: "https://images.pexels.com/photos/567452/pexels-photo-567452.jpeg?h=350&auto=compress&cs=tinysrgb", email: "hillary@gmail.com", password: "123456")
+jeremy  = User.create(first_name: "Jeremy", last_name: "Smith", photo_url: "https://www.bodymindlife.com/wp-content/uploads/2017/11/Teacher-Training-Team-Andy-414x414.jpg", email: "jeremy@gmail.com", password: "123456")
+john  = User.create(first_name: "Johnny", last_name: "McGabe", photo_url: "http://shivalaya.com.np/wp-content/uploads/2017/06/Yoga-Teacher-profile.jpg", email: "john@gmail.com", password: "123456")
+cameron = User.create(first_name: "Cameron", last_name: "McGregor", photo_url: "http://www.goodvibesfitness.co.uk/Content/images/teacherprofile_76.png", email: "cameron@gmail.com", password: "123456")
+bill = User.create(first_name: "Bill", last_name: "Johansson", photo_url: "http://blog.whereismymat.com/wp-content/uploads/2015/10/Nico-Luce-profile.jpg", email: "bill@gmail.com", password: "123456")
+angela = User.create(first_name: "Angela", last_name: "Parks", photo_url: "https://static1.squarespace.com/static/589c68afd1758eddbde8ba72/t/59a69d1df14aa1f18e32aac7/1504091430361/Adina2.jpg", email: "angela@gmail.com", password: "123456")
+joanna = User.create(first_name: "Joanna", last_name: "Neilson", photo_url: "hhttp://res.cloudinary.com/acroyoga-international/image/asset/Jen-290f25e22ffbcf8d78a6ca3c7c65209b.jpg", email: "joanna@gmail.com", password: "123456")
 
 # Listings ############################################################
 
