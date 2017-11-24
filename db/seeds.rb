@@ -12,8 +12,7 @@ puts "Starting seed..."
   User.destroy_all
 puts "Database dropped"
 
-
-######### users ########################################################
+# USERS
 
 hillary = User.create(first_name: "Hillary", last_name: "Parks", photo_url: "https://images.pexels.com/photos/567452/pexels-photo-567452.jpeg?h=350&auto=compress&cs=tinysrgb", email: "hillary@gmail.com", password: "123456")
 jeremy  = User.create(first_name: "Jeremy", last_name: "Smith", photo_url: "https://www.bodymindlife.com/wp-content/uploads/2017/11/Teacher-Training-Team-Andy-414x414.jpg", email: "jeremy@gmail.com", password: "123456")
@@ -23,7 +22,7 @@ bill = User.create(first_name: "Bill", last_name: "Johansson", photo_url: "http:
 angela = User.create(first_name: "Angela", last_name: "Parks", photo_url: "https://static1.squarespace.com/static/589c68afd1758eddbde8ba72/t/59a69d1df14aa1f18e32aac7/1504091430361/Adina2.jpg", email: "angela@gmail.com", password: "123456")
 joanna = User.create(first_name: "Joanna", last_name: "Neilson", photo_url: "http://res.cloudinary.com/acroyoga-international/image/asset/Jen-290f25e22ffbcf8d78a6ca3c7c65209b.jpg", email: "joanna@gmail.com", password: "123456")
 
-# Listings ############################################################
+# LISTINGS
 
 # Yoga retreat
 url = 'http://cdn.cnn.com/cnnnext/dam/assets/160415122850-womens-sacred-expression-retreat-in-lake-atitlan-guatemala-super-169.jpg'
@@ -41,31 +40,52 @@ meditation.save
 
 # Well-being Magic retreat
 url = "http://www.finland-product-manual.com/uploads/8/0/7/8/80787950/_3464881_orig.jpg"
-meditation = Listing.new(title: "Well-being Magic", caption: "Best well being journey (caption)",description: "Amazing well-being journey", price: 4000, address: "Ahornsgade 15, Copenhagen")
-meditation.user = bill
-meditation.photo_url = url
-meditation.save
+wellbeing = Listing.new(title: "Well-being Magic", caption: "Best well being journey (caption)",description: "Amazing well-being journey", price: 4000, address: "Ahornsgade 15, Copenhagen")
+wellbeing.user = bill
+wellbeing.photo_url = url
+wellbeing.save
 
-########## bookings #########################################
+# EVENTS
+
+event_one = Event.new(max_capacity: 4)
+event_one.listing = yoga
+event_one.user = john
+event_one.start_date = Date.today + rand(150)
+event_one.end_date = Date.today + rand(150)
+event_one.save
+
+event_two = Event.new(max_capacity: 10)
+event_two.listing = wellbeing
+event_two.user = hillary
+event_two.start_date = Date.today + rand(150)
+event_two.end_date = Date.today + rand(150)
+event_two.save
+
+event_third = Event.new(max_capacity: 8)
+event_third.listing = meditation
+event_third.user = hillary
+event_third.start_date = Date.today + rand(150)
+event_third.end_date = Date.today + rand(150)
+event_third.save
+
+# BOOKINGS
+
 booking_one = Booking.new(status: "Pending")
 booking_one.listing = yoga
 booking_one.user = john
-booking_one.start_date = Date.today + rand(150)
-booking_one.end_date = Date.today + rand(150)
+booking_one.customer_message = "Excited for this!"
 booking_one.save
 
 booking_two = Booking.new(status: "Rejected")
 booking_two.listing = yoga
 booking_two.user = hillary
-booking_one.start_date = Date.today + rand(150)
-booking_one.end_date = Date.today + rand(150)
+booking_two.customer_message = "Woohoo! See you soon!"
 booking_two.save
 
-booking_fourth = Booking.new(status: "Approved")
-booking_fourth.listing = meditation
-booking_fourth.user = hillary
-booking_one.start_date = Date.today + rand(150)
-booking_one.end_date = Date.today + rand(150)
-booking_fourth.save
+booking_third = Booking.new(status: "Approved")
+booking_third.listing = meditation
+booking_third.user = hillary
+booking_third.customer_message = "If you do any food, I'm a vegetarian"
+booking_third.save
 
 puts "Seeded"
