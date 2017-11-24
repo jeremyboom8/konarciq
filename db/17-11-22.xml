@@ -37,7 +37,7 @@
     <type label="SET" length="1" sql="SET" quote=""/>
     <type label="Bit" length="0" sql="bit" quote=""/>
   </group>
-</datatypes><table x="291" y="169" name="users">
+</datatypes><table x="198" y="352" name="users">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -60,7 +60,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="746" y="419" name="listings">
+<table x="851" y="352" name="listings">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -93,7 +93,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="546" y="143" name="bookings">
+<table x="546" y="198" name="bookings">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -115,7 +115,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="606" y="4" name="reviews">
+<table x="537" y="31" name="reviews">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -127,7 +127,7 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="listings" row="id" />
 </row>
-<row name="review" null="1" autoincrement="0">
+<row name="content" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
