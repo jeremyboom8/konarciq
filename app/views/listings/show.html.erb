@@ -209,12 +209,6 @@
 <%= @listing.address %>
 
 <!-- Booking form - add <%= %> to make it work (except end) -->
-<% @listing.price %>
-<% simple_form_for [@listing, @booking] do |f| %>
-  <% f.input :start_date %>
-  <% f.input :end_date %>
-  <% f.submit "Book a spot" %>
-<% end %>
 
 
 
