@@ -102,7 +102,7 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="events" row="id" />
 </row>
-<row name="message" null="1" autoincrement="0">
+<row name="customer_message" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
