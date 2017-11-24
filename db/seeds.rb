@@ -21,7 +21,7 @@ john  = User.create(first_name: "Johnny", last_name: "McGabe", photo_url: "http:
 cameron = User.create(first_name: "Cameron", last_name: "McGregor", photo_url: "http://www.goodvibesfitness.co.uk/Content/images/teacherprofile_76.png", email: "cameron@gmail.com", password: "123456")
 bill = User.create(first_name: "Bill", last_name: "Johansson", photo_url: "http://blog.whereismymat.com/wp-content/uploads/2015/10/Nico-Luce-profile.jpg", email: "bill@gmail.com", password: "123456")
 angela = User.create(first_name: "Angela", last_name: "Parks", photo_url: "https://static1.squarespace.com/static/589c68afd1758eddbde8ba72/t/59a69d1df14aa1f18e32aac7/1504091430361/Adina2.jpg", email: "angela@gmail.com", password: "123456")
-joanna = User.create(first_name: "Joanna", last_name: "Neilson", photo_url: "hhttp://res.cloudinary.com/acroyoga-international/image/asset/Jen-290f25e22ffbcf8d78a6ca3c7c65209b.jpg", email: "joanna@gmail.com", password: "123456")
+joanna = User.create(first_name: "Joanna", last_name: "Neilson", photo_url: "http://res.cloudinary.com/acroyoga-international/image/asset/Jen-290f25e22ffbcf8d78a6ca3c7c65209b.jpg", email: "joanna@gmail.com", password: "123456")
 
 # Listings ############################################################
 
