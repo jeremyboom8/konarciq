@@ -27,6 +27,7 @@
 .btn-primary {
   background-color: #00C175;
   border: 1px solid #00C175;
+  padding: 0.5rem 3rem;
   color: #fff;
 }
 
@@ -43,3 +44,6 @@ a:hover {
   color: #00C175;
 }
 
+.filter::after {
+  background-color: black;
+}

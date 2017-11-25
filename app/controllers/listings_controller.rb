@@ -7,7 +7,14 @@ class ListingsController < ApplicationController
       @query = params[:query]
       @listings = Listing.where("'%#{params[:query]}%'")
     else
-      @listings = Listing.all
+      @listings = Listing.where.not(latitude: nil, longitude: nil)
+      # @listings = Listing.all
+    end
+      @Listing = Listing.where.not(latitude: nil, longitude: nil)
+    @markers = Gmaps4rails.build_markers(@listings) do |listing, marker|
+      marker.lat listing.latitude
+      marker.lng listing.longitude
+      # marker.infowindow render_to_string(partial: "/listings/map_box", locals: { listing: listing })
     end
   end
 
@@ -18,6 +25,7 @@ class ListingsController < ApplicationController
   def show
     @booking = Booking.new
     @listing = Listing.find(params[:id])
+    @listing_coordinates = { lat: @listing.latitude, lng: @listing.longitude }
   end
 
  def create
@@ -47,7 +55,7 @@ class ListingsController < ApplicationController
   private
 
   def listing_params
-    params.require(:listing).permit(:name, :address, :description, :photos [])
+    params.require(:listing).permit(:title, :caption, :description, :address, :photo)
   end
 
   def set_listing

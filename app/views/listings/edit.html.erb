@@ -1,0 +1,23 @@
+<%= simple_form_for @listing do |f| %>
+  <%= f.error_notification %>
+  <div class="container">
+    <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2 listing-custom">
+      <form class="form-listing">
+        <h2 class="form-listing-heading" style="text-align: center;">Update listing</h2>
+
+        <%= f.input :title, required: true, autofocus: true, class: "form-control", placeholder: "Title of your experience" %>
+
+        <%= f.input :caption, required: true, autofocus: true, class: "form-control", placeholder: "A catchy short caption. Should be below 100 characters" %>
+
+        <%= f.input :description, autofocus: true, class: "form-control", hint: "What will people be doing?" %>
+
+        <%= f.input :address, required: true, autofocus: true, class: "form-control", hint: "Please include, post code and country." %>
+
+        <%= f.input :photo, as: :attachinary, class: "btn btn-lg btn-primary btn-block" %>
+
+        <%= f.button :submit, "Update listing", class: "btn btn-lg btn-primary btn-block" %>
+
+      </form>
+    </div>
+  </div>
+<% end %>

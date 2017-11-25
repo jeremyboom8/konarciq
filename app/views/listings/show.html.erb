@@ -1,17 +1,24 @@
 <div class="wrapper">
 
-  <div class="page-header" style="background-image: url('assets/img/cover.jpg')">
+  <% if @listing.photo? %>
+
+  <div class="page-header" style="background-image: url('<%= cl_image_path @listing.photo.path %>')">
+  <% end %>
     <div class="filter"></div>
     <div class="content-center">
       <div class="motto">
-        <h1 class="text-center show-title">Title</h1>
-        <h3 class="text-center show-caption">Caption</h3>
+        <h1 class="text-center show-title"><%= @listing.title %></h1>
+        <h3 class="text-center show-caption"><%= @listing.caption %></h3>
       </div>
       <div class="motto">
-        <%= image_tag "user-jeremy.jpg", class: "show-img-circle img-no-padding img-responsive text-center media-object", alt: "Rounded Image" %>
-        <h3 class="text-center">Jane</h3>
+        <%= cl_image_tag @listing.user.photo.path, crop: :fill, width: 300, height: 300, class: "show-img-circle img-responsive text-center media-object", alt: "Rounded Image" %>
+        <h3 class="text-center"><%= @listing.user.first_name %></h3>
         <p></p>
-        <a href="#" class="btn btn-primary btn-wd btn-lg text-center">Book a spot</a>
+        <% if @listing.user == current_user %>
+          <%= link_to "Edit listing", edit_listing_path, class: "btn btn-primary btn-wd btn-lg text-center"  %>
+        <% else %>
+          <a href="#" class="btn btn-primary btn-wd btn-lg text-center">Book a spot</a>
+        <% end %>
         <p></p>
         <p style="font-weight: 100;">From <strong>&euro; 975.00</strong></p>
       </div>
@@ -25,8 +32,10 @@
         <div class="row">
           <div class="col-md-6 ml-auto mr-auto text-center spacious">
 
-           <h2 class="title">Title</h2>
-           <p class="show-p">Take a break from hectic pace of modern life and immerse yourself in Finnish nature, easing your stresses away. Explore Finnish forests and the beautiful Baltic coast, enjoy traditional Finnish saunas and eat pure, fresh, healthy, wild food. During this trip, you can fish, row, kayak, practice Nordic walking, enjoy saunas and swim in and around beautiful archipelago off the western coast of Finland.</p>
+           <h2 class="h2-title">Title</h2>
+           <p class="show-p"><%= @listing.description %></p><p>
+           Take a break from hectic pace of modern life and immerse yourself in Finnish nature, easing your stresses away. Explore Finnish forests and the beautiful Baltic coast, enjoy traditional Finnish saunas and eat pure, fresh, healthy, wild food. During this trip, you can fish, row, kayak, practice Nordic walking, enjoy saunas and swim in and around beautiful archipelago off the western coast of Finland.</p>
+           <%= @listing.address %>
           </div>
 
         </div>
@@ -51,7 +60,6 @@
         </div>
       </div>
     </div>
-
 
     <div class="section" id="carousel">
       <div class="container">
@@ -194,14 +202,3 @@
 
   </div>
 </div>
-
-<% if @listing.photo? %>
-  <%= cl_image_tag @listing.photo.path, width: 300, crop: :fill %>
-<% end %>
-
-<%= cl_image_tag @listing.user.photo.path %>
-
-<%= @listing.title %>
-<%= @listing.caption %>
-<%= @listing.description %>
-<%= @listing.address %>

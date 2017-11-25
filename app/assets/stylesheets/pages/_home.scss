@@ -44,6 +44,12 @@
   padding: 0.5rem 2rem;
 }
 
+@media (max-width: 623px) {
+  .jumbotron-heading {
+    font-size: 4.0rem;
+  }
+}
+
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575px) {
   #home-search {
