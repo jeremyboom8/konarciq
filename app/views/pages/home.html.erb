@@ -3,17 +3,36 @@
     <h1 class="display-3">Feeling stressed?</h1>
     <h2 id="home-h2">Go out and explore</h2>
 
-    <form class="form-inline justify-content-center">
-      <input class="form-control" id="wide-mobile" type="text" placeholder="Where to?">
-      <%= button_to "Search", listings_path, class: "btn btn-primary btn-lg my-2 my-sm-0", id: "home-search" %>
+    <!-- id="wide-mobile" -->
+    <form name="location" action="/listings" method="get" id="location-form" class="form-inline justify-content-center home-search">
+      <input name="location" type="text" style='style="
+        width: auto;
+        height: 48px;
+        border: 0px;
+        font-size: 19px;
+        border-radius: 3px 0px 0px 3px;"''
+        id="location-search" placeholder="Copenhagen" class="form-control">
+      <input type="submit" value="Search" class="btn btn-primary btn-lg my-2 my-sm-0">
     </form>
-  </div>
 
+  </div>
 </section>
 
+<script>
 
+// Google Maps Autocomplete
 
-<!-- Working button and form -->
-<!-- <input class="form-control" id="kill-mobile" type="text" placeholder="Search"> -->
-<!-- <button class="btn btn-primary btn-lg my-2 my-sm-0" id="home-search" type="submit">Search</button> -->
-
+const addressSearch = document.querySelector("#location-search");
+const locationValue = document.querySelector("#location-value");
+function onPlaceChanged() {
+  var place = this.getPlace();
+  var listAddress = document.getElementById('location-search');
+}
+document.addEventListener("DOMContentLoaded", function() {
+  var listAddress = document.getElementById('location-search');
+  if (listAddress) {
+    var autocomplete = new google.maps.places.Autocomplete(listAddress, { types: ['geocode'] });
+    google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
+  }
+});
+</script>
