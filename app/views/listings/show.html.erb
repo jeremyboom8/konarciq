@@ -125,6 +125,12 @@
             <!-- <a href="#" class="btn btn-primary btn-wd">View Profile</a> -->
           </div>
 
+          <div class="col-md-8 col-lg-10 ml-auto mr-auto text-center spacious">
+            <iframe frameborder="0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDg2ZfmYz-6webKZjOAQLva8XJ7eBjn1vw&q=<%= @listing.latitude %>,<%= @listing.longitude %> "
+             allowfullscreen>
+            </iframe>
+          </div>
+
         </div>
       </div>
     </div>
@@ -207,20 +213,6 @@
         </div>
       </div>
 
-      <div class="section">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-md-8 col-lg-6 ml-auto mr-auto text-center spacious">
-            <iframe width="500" height="300" frameborder="0" style="border:0"
-             src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDg2ZfmYz-6webKZjOAQLva8XJ7eBjn1vw&q=<%= @listing.latitude %>,<%= @listing.longitude %> "
-             allowfullscreen>
-            </iframe>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
   </div>
 </div>
+
