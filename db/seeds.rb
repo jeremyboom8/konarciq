@@ -17,6 +17,7 @@ puts "Database dropped"
 
 hillary = User.create(first_name: "Hillary", last_name: "Parks", photo_url: "https://images.pexels.com/photos/567452/pexels-photo-567452.jpeg?h=350&auto=compress&cs=tinysrgb", email: "hillary@gmail.com", password: "123456")
 nicolas = User.create(first_name: "Nicolas", last_name: "Feer", photo_url: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/zqnoyn0jjimopwbvjij7.jpg", email: "atmosfeer@gmail.com", password: "RubyOnRails")
+frida = User.create(first_name: "Frida", last_name: "Levin", photo_url: "https://scontent.fgse1-1.fna.fbcdn.net/v/t1.0-1/p50x50/10426072_10152599980393347_5299541698241902343_n.jpg?oh=f1db7acd153fe84ab641dbd6ecab34c5&oe=5AD71B26", email: "fridalevin7@gmail.com", password: "123456")
 jeremy  = User.create(first_name: "Jeremy", last_name: "Smith", photo_url: "https://www.bodymindlife.com/wp-content/uploads/2017/11/Teacher-Training-Team-Andy-414x414.jpg", email: "jeremy@gmail.com", password: "123456")
 john  = User.create(first_name: "Johnny", last_name: "McGabe", photo_url: "http://shivalaya.com.np/wp-content/uploads/2017/06/Yoga-Teacher-profile.jpg", email: "john@gmail.com", password: "123456")
 cameron = User.create(first_name: "Cameron", last_name: "McGregor", photo_url: "http://www.goodvibesfitness.co.uk/Content/images/teacherprofile_76.png", email: "cameron@gmail.com", password: "123456")

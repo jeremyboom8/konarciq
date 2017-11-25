@@ -1,9 +1,10 @@
-.img-circle {
+.nav-img-circle {
   margin-bottom: 0px;
   padding: 0px;
   border-radius: 50%!important;
   max-width: 100%;
   width: 40px;
+  height: 40px;
 }
 
 .navbar {
@@ -31,4 +32,13 @@
   .mobile-search-form {
     display: inline;
   }
+}
+
+.navbar-light .navbar-toggler {
+  color: $gray-600;
+  border: 0;
+}
+
+.ion-android-funnel:before {
+  font-size: 35px;
 }
