@@ -10,12 +10,25 @@
   box-shadow: 0px 2px 32px rgba(0, 0, 0, 0.05);
 }
 
-.nav-link {
-  padding: 0;
+.navbar-nav .nav-link {
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 50px;
+  line-height: 50px;
 }
 
 .navbar-brand {
   padding-top: 3px;
   padding-bottom: 0;
   height: 46px;
+}
+
+.mobile-search-form {
+  display: none;
+}
+
+@media (max-width: 567px) {
+  .mobile-search-form {
+    display: inline;
+  }
 }
