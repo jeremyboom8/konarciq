@@ -1,0 +1,57 @@
+.form-listing {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-listing .form-listing-heading,
+.form-listing .checkbox {
+  margin-bottom: 10px;
+}
+.form-listing .checkbox {
+  font-weight: 400;
+}
+.form-listing .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-listing .form-control:focus {
+  z-index: 2;
+}
+.form-listing .email {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-listing .password {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+input[type="radio"], input[type="checkbox"] {
+  margin: 0 6px 0 0;
+}
+
+.form-listing-heading {
+  margin-bottom: 30px;
+  font-size: 60px;
+  color: #000000c4;
+}
+
+.listing-custom {
+  margin-top: 70px;
+  border-radius: 4px;
+  padding: 45px;
+  box-shadow: 0px 9px 32px #00000026;
+  margin-bottom: 70px;
+}
+
+@media (max-width: 575px) {
+  .listing-custom {
+    margin: 20px 0 0 0;
+    padding: 15px;
+  }
+}

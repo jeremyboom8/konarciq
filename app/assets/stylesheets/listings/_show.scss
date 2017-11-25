@@ -1,11 +1,13 @@
 .show-title {
   font-size: 3.6em;
+  font-weight: 300;
 }
 
 .show-caption {
   font-size: 1.825em;
   line-height: 1.4;
   margin: 20px 0 0px;
+  font-weight: 300;
 }
 
 .show-p {
@@ -16,13 +18,14 @@
   margin-right: 25px;
 }
 
-.title {
+.h2-title {
   color: #333;
   text-decoration: none;
   margin-top: 0px;
   margin-bottom: 25px;
   min-height: 32px;
   font-size: 2.8em;
+  font-weight: 100px;
 }
 
 .media h6 {
@@ -36,10 +39,12 @@
   background-color: #fff;
   margin-bottom: 10px;
   padding: 4px;
-  width: 100px;
+  width: 150px;
   border-radius: 50% !important;
   max-width: 50%;
-  margin-top: 40px;
+  margin-top: 20px;
+  width: 120px;
+  height: 120px;
 }
 
 .media-object {
@@ -94,7 +99,7 @@
 }
 
 .show-avatar {
-  width: 200px;
+  // width: 200px;
   border: 4px solid white;
 }
 
@@ -119,7 +124,7 @@ textarea.form-control {
   background-color: #b2afab;
   background-position: center center;
   background-size: cover;
-  min-height: 100vh;
+  min-height: 700px;
   max-height: 999px;
   overflow: hidden;
   position: relative;
@@ -320,6 +325,41 @@ textarea.form-control {
   background-color: #f5593d;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+@media (max-width: 567px) {
+  .page-header {
+    min-height: 540px;
+  }
+  .show-avatar {
+    width: 150px;
+    border: 2px solid white;
+  }
+  .show-title {
+    font-size: 37px;;
+    font-weight: 300;
+  }
+  .show-caption {
+    font-size: 24px;
+    line-height: 1.4;
+    margin: 0;
+    font-weight: 300;
+  }
+  .show-img-circle {
+    width: 100px;
+    height: 100px;
+  }
+}
+
 @media (max-width: 767px) {
   .media p {
     position: relative;
@@ -330,21 +370,15 @@ textarea.form-control {
   padding: 0px;
 }
 
+.embed-responsive {
+  box-shadow: 0px 0px 32px 0px #00000082;
+}
+
+
 @media (max-width: 991px) {
   .wrapper {
     transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
     left: 0;
     background-color: white;
   }
-}
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
 }

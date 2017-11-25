@@ -6,6 +6,18 @@ gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'sprockets-rails', '~> 3.0', '>= 3.0.4'
 gem 'ionicons-rails'
 
+# Geocoding with Gmaps
+gem "geocoder"
+gem "coffee-rails"
+gem "gmaps4rails"
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
+
+# TODO: Drag n drop - Image uploading (https://www.youtube.com/watch?v=ic4MeDEfT08)
+# gem 'paperclip'
+# gem 'dropzonejs-rails'
+
 # Photo uploading with Cloudinary
 gem 'cloudinary'
 gem 'attachinary', github: 'assembler/attachinary'

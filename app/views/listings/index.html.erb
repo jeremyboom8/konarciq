@@ -5,17 +5,16 @@
       <% @listings.each do |listing| %>
 
         <!-- Start of the card -->
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+        <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3">
           <div class="card profile-card">
+            <%=  link_to "", listing_path(listing), class: "profile-card-link", target: "_blank" %>
             <div class="profile-card-cover" style="background-image: url('<%= cl_image_path listing.photo.path %>')"></div>
             <%= cl_image_tag listing.user.photo.path, crop: :fill, width: 100, height: 100, class: "profile-card-avatar" %>
             <div class="profile-card-body">
               <h4 class="profile-card-first-name"><%= listing.title %></h4>
               <h6 class="profile-card-interests">Starting from €30</h6>
-
               <p class="profile-card-description"><%= listing.caption %></p>
             </div>
-            <%=  link_to "", listing_path(listing), class: "profile-card-link", target: "_blank" %>
           </div>
         </div>
         <!-- Start of the card -->
@@ -26,8 +25,24 @@
 
   <div id="map"></div>
 
+  <% content_for(:after_js) do %>
+    <%= javascript_tag do %>
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @markers.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+        }
+      });
+    <% end %>
+  <% end %>
+
   <!-- Gmaps js: building the map -->
-  <script>
+  <!-- <script>
     function initMap() {
       // Create a map object and specify the DOM element for display.
       var map = new google.maps.Map(document.getElementById('map'), {
@@ -36,9 +51,9 @@
         zoom: 8
       });
     }
-  </script>
+  </script> -->
   <!-- Gmaps JavaScript -->
-  <script async defer
+  <!-- <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzER7O10ZOUp7FloJzMe2r8X1GIQhgt7Q&callback=initMap">
-  </script>
+  </script> -->
 </div>

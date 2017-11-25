@@ -26,13 +26,13 @@
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
             <%= link_to "#", class: "dropdown-item" do %>
-              <i class="fa fa-user"></i> <%= t(".user", default: "Profile") %>
+              <i class="ion ion-person"></i> <%= t(".user", default: " Profile") %>
             <% end %>
 
             <div class="dropdown-divider"></div>
 
             <%= link_to destroy_user_session_path, class: "dropdown-item", method: :delete do %>
-              <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+              <i class="ion ion-log-out"></i>  <%= t(".sign_out", default: " Log out") %>
             <% end %>
 
           </div>
