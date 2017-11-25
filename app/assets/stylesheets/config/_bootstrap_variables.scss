@@ -23,3 +23,23 @@
 // $border-radius-small: 2px;
 
 // Override other variables below!
+
+.btn-primary {
+  background-color: #00C175;
+  border: 1px solid #00C175;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  border: 1px solid #3BDD97;
+  background-color: #3BDD97;
+}
+
+a {
+  color: #7F7F7F;
+}
+a:hover {
+  text-decoration: none;
+  color: #00C175;
+}
+

@@ -1,12 +1,19 @@
-<div class="jumbotron-fluid banner">
-  <div class="my-auto">
-    <div class="container text-center">
-      <h1 class="display-3">What do you love?</h1>
-      <p class="lead">Do more of it with Konarciq</p>
-      <p class="lead">
-        <%= link_to "See all", listings_path, class: "btn btn-primary btn-lg", role: "button" %>
-        <!-- <a class="btn btn-primary btn-lg" href="#" role="button">Sign up</a> -->
-      </p>
-    </div>
+<section class="jumbotron text-center">
+  <div class="container justify-content-center">
+    <h1 class="display-3">Feeling stressed?</h1>
+    <h2 id="home-h2">Go out and explore</h2>
+
+    <form class="form-inline justify-content-center">
+      <input class="form-control" id="wide-mobile" type="text" placeholder="Where to?">
+      <%= button_to "Search", listings_path, class: "btn btn-primary btn-lg my-2 my-sm-0", id: "home-search" %>
+    </form>
   </div>
-</div>
+
+</section>
+
+
+
+<!-- Working button and form -->
+<!-- <input class="form-control" id="kill-mobile" type="text" placeholder="Search"> -->
+<!-- <button class="btn btn-primary btn-lg my-2 my-sm-0" id="home-search" type="submit">Search</button> -->
+

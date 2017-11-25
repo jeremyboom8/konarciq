@@ -1,21 +1,23 @@
 <div class="container justify-content-center">
-  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <form class="form-signin text-center">
+  <div class="col-md-8 offset-md-2 col-lg-4 offset-lg-4 devise">
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <form class="form-devise">
 
-      <h2 class="form-signin-heading">Log in</h2>
+        <h2 class="form-devise-heading">Log in</h2>
 
-      <%= f.input :email, required: false, autofocus: true, class: "pizza form-control input-email", placeholder: "Email address", id: "inputEmail", label: false %>
+        <%= f.input :email, required: false, autofocus: true, class: "pizza form-control input-email", placeholder: "Email address", id: "inputEmail", label: false %>
 
-      <%= f.input :password, required: false, id: "inputPassword", class: "password form-control input-password", placeholder: "Password", label: false %>
+        <%= f.input :password, required: false, id: "inputPassword", class: "pizza password form-control input-password", placeholder: "Password", label: false %>
 
-      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
 
-      <%= f.button :submit, "Sign in", class: "btn btn-lg btn-primary btn-block" %>
+        <%= f.button :submit, "Sign in", class: "btn btn-lg btn-primary btn-block" %>
 
-      <p></p>
+        <p></p>
 
-      <p><%= render "devise/shared/links" %></p>
+        <p><%= render "devise/shared/links" %></p>
 
-    </form>
-  <% end %>
+      </form>
+    <% end %>
+  </div>
 </div>
