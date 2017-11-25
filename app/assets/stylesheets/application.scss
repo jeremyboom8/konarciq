@@ -4,14 +4,14 @@
 @import "font-awesome";
 @import 'ionicons';
 
+// Graphical variables
+@import "config/fonts";
+@import "config/colors";
+@import "config/bootstrap_variables";
+
 // Your CSS partials
 @import "layouts/index";
 @import "components/index";
 @import "pages/index";
 @import "devise/index";
 @import "listings/index";
-
-// Graphical variables
-@import "config/fonts";
-@import "config/colors";
-@import "config/bootstrap_variables";
