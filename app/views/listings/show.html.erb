@@ -195,8 +195,6 @@
   </div>
 </div>
 
-
-
 <% if @listing.photo? %>
   <%= cl_image_tag @listing.photo.path, width: 300, crop: :fill %>
 <% end %>
@@ -207,13 +205,3 @@
 <%= @listing.caption %>
 <%= @listing.description %>
 <%= @listing.address %>
-
-<!-- Booking form - add <%= %> to make it work (except end) -->
-
-
-
-
-
-<% if @listing.user == current_user %>
-  <%= link_to "Set availability", edit_path, class: "btn btn-primary"  %>
-<% end %>

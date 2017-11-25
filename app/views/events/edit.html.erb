@@ -1,2 +1,6 @@
 <h1>Events#edit</h1>
 <p>Find me in app/views/events/edit.html.erb</p>
+
+<% if @listing.user == current_user %>
+  <%= link_to "Set availability", edit_path, class: "btn btn-primary"  %>
+<% end %>

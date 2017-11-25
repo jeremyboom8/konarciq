@@ -1,21 +1,67 @@
 // Specific CSS for your home-page
-.banner {
-  flex-direction: column;
+.jumbotron {
+  padding-top: 10rem;
+  padding-bottom: 10rem;
   background-color: #000;
-  display: flex;
+  margin-bottom: 0;
+  height: auto;
+  border-radius: 0px;
 }
 
-.banner h1, .banner p {
+#wide-mobile {
+  width: auto;
+  height: 48px;
+  border: 0px;
+  font-size: 19px;
+  border-radius: 3px 0px 0px 3px;
+}
+
+#home-h2 {
+  color: white;
+  margin-bottom: 20px;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+}
+
+#home-search {
+  border-radius: 0px 3px 3px 0px;
+}
+.jumbotron-heading {
+  font-weight: 300;
+}
+
+.jumbotron .container {
+  max-width: 40rem;
+  // padding-right: 10px;
+  // padding-left: 10px;
+}
+
+.jumbotron h1, .jumbotron p {
   color: white;
 }
 
-.banner {
-  height: 50vh;
+#home-search {
+  padding: 0.5rem 2rem;
 }
 
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575px) {
-  .banner h1 {
-    font-size: 35px;
+  #home-search {
+    width: 100%;
+    border-radius: 3px 3px 3px 3px;
+  }
+  #wide-mobile {
+    width: 100%;
+    border-radius: 3px 3px 3px 3px;
+  }
+  .jumbotron {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+  .my-sm-0 {
+    border-radius: 0 4px 4px 0px;
+  }
+  .jumbotron h1 {
+    font-size: 40px;
   }
 }
