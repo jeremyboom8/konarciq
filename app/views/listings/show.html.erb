@@ -1,9 +1,6 @@
 <div class="wrapper">
 
-  <% if @listing.photo? %>
-
-  <div class="page-header " style="background-image: url('<%= cl_image_path @listing.photo.path %>')">
-  <% end %>
+  <div class="page-header " style="background-image: url('<%= cl_image_path @listing.photos.first.path %>')">
     <div class="filter"></div>
     <div class="content-center">
       <div class="motto">
@@ -11,7 +8,7 @@
         <h3 class="text-center show-caption"><%= @listing.caption %></h3>
       </div>
       <div class="motto">
-        <%= cl_image_tag @listing.user.photo.path, crop: :fill, width: 300, height: 300, class: "show-img-circle img-responsive text-center media-object", alt: "Rounded Image" %>
+        <%= cl_image_tag @listing.user.photos.first.path, crop: :fill, width: 300, height: 300, class: "show-img-circle img-responsive text-center media-object", alt: "Rounded Image" %>
         <h3 class="text-center"><%= @listing.user.first_name %></h3>
         <p></p>
         <% if @listing.user == current_user %>
@@ -39,7 +36,8 @@
       <div class="container">
         <div class="row">
           <div class="col-md-8 col-lg-6 offset-md-2 offset-lg-3 text-center spacious">
-            <h2 class="h2-title">Title</h2>
+            <!-- <h2 class="h2-title">What you'll do</h2> -->
+            <h3 class="h3-title">What you'll be doing</h3>
             <p class="show-p"><%= @listing.description %></p>
             <p class="show-p">Take a break from hectic pace of modern life and immerse yourself in Finnish nature, easing your stresses away. Explore Finnish forests and the beautiful Baltic coast, enjoy traditional Finnish saunas and eat pure, fresh, healthy, wild food. During this trip, you can fish, row, kayak, practice Nordic walking, enjoy saunas and swim in and around beautiful archipelago off the western coast of Finland.</p>
             <%= @listing.address %>
@@ -77,34 +75,15 @@
               <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 
                 <div class="carousel-inner" role="listbox">
-                  <div class="carousel-item active">
-                    <img class="d-block img-fluid" src="assets/img/antoine-barres.jpg" alt="First slide">
-                    <div class="carousel-caption d-none d-md-block">
-                      <p>Somewhere</p>
+
+                  <% @listing.photos.each do |photo| %>
+                    <div class="carousel-item">
+                      <img class="d-block img-fluid" src='<% cl_image_tag photo.path, width: 700, height: 500, crop: :fill %>'>
                     </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img class="d-block img-fluid" src="assets/img/antoine-barres.jpg" alt="Second slide">
-                    <div class="carousel-caption d-none d-md-block">
-                      <p>Somewhere else</p>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img class="d-block img-fluid" src="assets/img/antoine-barres.jpg" alt="Third slide">
-                    <div class="carousel-caption d-none d-md-block">
-                      <p>Here it is</p>
-                    </div>
-                  </div>
+                  <% end %>
+
                 </div>
 
-                <a class="left carousel-control carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                  <span class="fa fa-angle-left"></span>
-                  <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                  <span class="fa fa-angle-right"></span>
-                  <span class="sr-only">Next</span>
-                </a>
               </div>
             </div>
           </div>
@@ -143,7 +122,7 @@
             <div class="col-md-8 ml-auto mr-auto">
               <div class="media-area">
 
-                <h3 class="text-center">Reviews · 10</h3>
+                <h3 class="text-center">Guestbook · (10)</h3>
 
                 <!-- Review -->
                 <div class="media">
@@ -192,7 +171,7 @@
 
             <div class="col-md-8 ml-auto mr-auto">
 
-              <h3 class="text-center">Post your review</h3>
+              <h3 class="text-center">Post to the guestbook</h3>
 
               <div class="media media-post">
                 <a class="pull-left author" href="#">

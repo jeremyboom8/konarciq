@@ -1,7 +1,7 @@
 class Listing < ApplicationRecord
   belongs_to :user
   has_many :events, dependent: :nullify
-  has_attachment :photo
+  has_attachments :photos, maximum: 5
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 
