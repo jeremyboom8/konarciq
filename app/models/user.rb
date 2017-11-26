@@ -5,7 +5,7 @@ class User < ApplicationRecord
 
   # Did with Nick - Shows booked listings
   has_many :booked_listings, through: :bookings, class_name: "Listing", foreign_key: "listing_id"
-  has_attachment :photo
+  has_attachments :photos, maximum: 1
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

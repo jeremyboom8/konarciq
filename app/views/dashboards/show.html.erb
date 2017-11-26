@@ -1,0 +1,104 @@
+<div class="container">
+
+  <!-- pe render('shared/profile') -->
+
+  <div id="jumptobookings" class="tabs">
+    <div id="tab-listings" class="tab"><h4>Your Listings</h4></div>
+    <div id="tab-bookings" class="tab active"><h4>Booked kitchen tools</h4></div>
+  </div>
+
+  <div id="listings">
+    <% @listings.each do |listing| %>
+      <div class="message">
+        <div class="image-wrapper">
+          <%= cl_image_tag listing.photo.path, class: "avatar-md", crop: :thumb %>
+        </div>
+        <div class="message-name">
+          <h3 style="color: green; font-weight: bold">Online</h3>
+        </div>
+        <div class="message-body">
+          <p><strong> <%= listing.title %> </strong></p>
+          <p>
+            <%= listing.description %>
+          </p>
+        </div>
+        <div class="message-status">
+          <p class="status pending"><%=  %></p>
+          <p class="price"><%= listing.price %> DKK/day</p>
+        </div>
+        <div class="message-status">
+        <%= link_to edit_listing_path(listing) do %>
+          <i class="fa fa-pencil-square-o" id="edit_button" aria-hidden="true"></i>
+        <% end %>
+        </div>
+
+      </div>
+    <% end %>
+    <div class="table-button text-center">
+      List your kitchen tools and make money
+      <%= link_to "",  new_listing_path, class: "message-link"%>
+    </div>
+  </div>
+
+  <div id="bookings">
+    <% @bookings.each do |booking| %>
+      <div class="message">
+        <div class="image-wrapper">
+          <%= cl_image_tag booking.listing.photo.path, class: "avatar-md", crop: :thumb %>
+        </div>
+        <div class="message-name">
+          <p><%= "#{booking.listing.user.first_name} #{booking.listing.user.last_name}" %></p>
+          <p><%= booking.booking_date %></p>
+        </div>
+        <div class="message-body">
+          <p>
+            <strong><%= booking.listing.title %></strong>
+          </p>
+          <p>
+            <%= booking.listing.description %>
+          </p>
+        </div>
+        <div class="message-status">
+          <% if booking.status == "Pending" %>
+            <p class="status pending"><%= booking.status  %></p>
+          <% elsif booking.status == "Rejected" %>
+            <p class="status rejected"><%= booking.status  %></p>
+          <% else %>
+            <p class="status Approved"><%= booking.status  %></p>
+          <% end %>
+          <p class="price"><%= booking.listing.price %> DKK/day</p>
+        </div>
+      </div>
+    <% end %>
+    <div class="table-button text-center">
+      Show me more equipment
+      <%= link_to "",  listings_path, class: "message-link"%>
+    </div>
+  </div>
+</div>
+
+ <!-- er content_for :tab_logic do  -->
+  <!-- <script> //Javascript for tab logic
+    const listings = document.querySelector("#listings");
+    const bookings = document.querySelector("#bookings");
+    const tab_listings = document.querySelector("#tab-listings");
+    const tab_bookings = document.querySelector("#tab-bookings");
+
+    function listingClick() {
+      listings.style.display = "block";
+      bookings.style.display = "none";
+      tab_bookings.classList.remove("active");
+      tab_listings.classList.add("active");
+    }
+
+    function bookingClick() {
+      bookings.style.display = "block";
+      listings.style.display = "none";
+      tab_listings.classList.remove("active");
+      tab_bookings.classList.add("active");
+    }
+    console.log("Hi")
+    tab_listings.addEventListener("click", listingClick);
+    tab_bookings.addEventListener("click", bookingClick);
+  </script> -->
+<!-- er end -->
