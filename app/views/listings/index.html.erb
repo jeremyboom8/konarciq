@@ -1,7 +1,7 @@
 <div class="index-content">
   <div class="row profile-cards">
 
-    <% 10.times do %>
+
       <% @listings.each do |listing| %>
 
         <!-- Start of the card -->
@@ -20,25 +20,25 @@
         <!-- End of the card -->
 
       <% end %>
-    <% end %>
+
   </div>
 
   <div id="map"></div>
 
   <% content_for(:after_js) do %>
-  <script type="text/javascript">
-    var handler = Gmaps.build('Google');
-    handler.buildMap({ provider: { scrollwheel: false }, internal: { id: 'map' } }, function() {
-      markers = handler.addMarkers(<%= raw @markers.to_json %>);
-      handler.bounds.extendWith(markers);
-      handler.fitMapToBounds();
-      if (markers.length == 0) {
-        handler.getMap().setZoom(2);
-      } else if (markers.length == 1) {
-        handler.getMap().setZoom(14);
-      }
-    });
-    </script>
+    <%= javascript_tag do %>
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ provider: { scrollwheel: false }, internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @markers.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+        }
+      });
+    <% end %>
   <% end %>
 
 </div>

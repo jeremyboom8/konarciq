@@ -1,20 +1,19 @@
 class ListingsController < ApplicationController
-  before_action :authenticate_user!
+  skip_before_action :authenticate_user!, only: [ :index ]
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params[:query].present?
-      @query = params[:query]
-      @listings = Listing.where("'%#{params[:query]}%'")
+    if params[:locationsearch].present?
+      @locationsearch = params[:locationsearch]
+      @listings = Listing.near(@locationsearch, 14)
+
+      @markers = Gmaps4rails.build_markers(@listings) do |listing, marker|
+        marker.lat listing.latitude
+        marker.lng listing.longitude
+        # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+      end
     else
-      @listings = Listing.where.not(latitude: nil, longitude: nil)
-      # @listings = Listing.all
-    end
-      @Listing = Listing.where.not(latitude: nil, longitude: nil)
-    @markers = Gmaps4rails.build_markers(@listings) do |listing, marker|
-      marker.lat listing.latitude
-      marker.lng listing.longitude
-      # marker.infowindow render_to_string(partial: "/listings/map_box", locals: { listing: listing })
+      @listings = Listing.all
     end
   end
 
