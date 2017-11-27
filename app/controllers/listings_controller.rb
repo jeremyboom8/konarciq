@@ -10,6 +10,7 @@ class ListingsController < ApplicationController
       @markers = Gmaps4rails.build_markers(@listings) do |listing, marker|
         marker.lat listing.latitude
         marker.lng listing.longitude
+        marker.infowindow "<div>#{listing.user.photo.path}</div>"
         # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
       end
     else
@@ -35,6 +36,7 @@ class ListingsController < ApplicationController
  def create
     @listing = Listing.new(listing_params)
     @listing.user = current_user
+    # @youtube_id = params[:youtube_url].match(/?:http:\/\/)?(?:www\.)?(?:youtube\.com)\/(?:watch\?v=)?(.+/)
     if @listing.save
       redirect_to listing_path(@listing)
     else

@@ -1,2 +1,12 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+<h1 class="text-center">Upcoming</h1>
+<div class="container">
+  <div class="row">
+    <% @events.each do |event| %>
+      <%= link_to new_listing_event_booking_path(@listing, event, @booking), class: "btn btn-info" do %>
+          <h3>Start date: <%= event.start_date %></h3>
+          <h3>End date: <%= event.end_date %></h3>
+          <h3>Spaces left: <%= event.max_capacity %></h3>
+      <% end %>
+    <% end %>
+  </div>
+</div>
