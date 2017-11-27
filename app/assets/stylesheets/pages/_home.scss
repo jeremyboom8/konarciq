@@ -2,9 +2,13 @@
 .jumbotron {
   padding-top: 10rem;
   padding-bottom: 10rem;
-  background-color: #000;
   margin-bottom: 0;
   height: auto;
+  background-size: cover;
+  background-position: center center;
+  max-height: 999px;
+  position: relative;
+  width: 100%;
   border-radius: 0px;
 }
 
@@ -32,6 +36,7 @@
 }
 
 .jumbotron .container {
+  z-index: 1;
   max-width: 40rem;
   // padding-right: 10px;
   // padding-left: 10px;
@@ -41,8 +46,20 @@
   color: white;
 }
 
+.jumbotron h1 {
+  font-weight: 400;
+}
+
 #home-search {
   padding: 0.5rem 2rem;
+}
+
+.container-jumbotron {
+  margin: 70px auto;
+}
+
+.details h2 {
+  margin-bottom: 15px;
 }
 
 // Extra small devices (portrait phones, less than 576px)
@@ -64,11 +81,169 @@
   }
   .jumbotron h1 {
     font-size: 40px;
+    font-weight: 400;
   }
 }
 
 @media (max-width: 623px) {
   .jumbotron-heading {
     font-size: 4.0rem;
+  }
+}
+
+// CSS for Expose section
+.expose h2, .expose h3 {
+  margin: 30px 0 0;
+}
+
+.expose .title h2 {
+  font-weight: 600;
+}
+
+.expose h2 {
+  font-size: 2.8em;
+}
+
+.expose h3 {
+  font-size: 1.825em;
+  line-height: 1.4;
+  margin: 20px 0 0px;
+}
+
+.expose h5 {
+  font-size: 1.35em;
+  line-height: 1.4em;
+  margin-bottom: 50px;
+  font-weight: 300;
+}
+
+.expose h6 {
+  font-size: 0.9em;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 1.5em;
+}
+
+.expose p {
+  font-size: 16px;
+  line-height: 1.5em;
+  margin-bottom: 5px;
+}
+
+.expose .title,
+.card-title {
+  color: #333333;
+  text-decoration: none;
+}
+
+.expose .description {
+  color: #9A9A9A;
+}
+
+.expose .title {
+  margin-top: 30px;
+  margin-bottom: 25px;
+  min-height: 32px;
+}
+
+.expose .section {
+  padding: 70px 0;
+  position: relative;
+  background-color: #FFFFFF;
+}
+
+.expose .section-dark {
+  background-color: #151f20;
+}
+
+.expose .section-dark {
+  position: relative;
+}
+
+.expose .card {
+  border-radius: 0px;
+  box-shadow: 0px 12px 19px -7px rgba(0, 0, 0, 0.3);
+  background-color: #FFFFFF;
+  color: #333333;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  border: 0 none;
+  -webkit-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease;
+  transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease;
+}
+
+.expose .card .card-description {
+  color: #9A9A9A;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.expose .card.card-plain {
+  background-color: transparent;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.expose .card.card-plain .card-body {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.expose .card .card-category {
+  color: #9A9A9A;
+}
+
+.expose .card .card-body .card-description+.card-footer {
+  padding-top: 10px;
+}
+
+.expose .card .card-body {
+  padding: 20px;
+}
+
+.expose .card .card-body .card-title {
+  margin: 5px 0 0 0;
+}
+
+.expose .card h6 {
+  font-size: 12px;
+  margin: 0;
+}
+
+.expose .card[data-background="image"] {
+  background-position: center center;
+  background-size: cover;
+  text-align: center;
+}
+
+.expose .card[data-background] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+}
+
+.expose .card[data-background]:after {
+  background-color: rgba(0, 0, 0, 0.35);
+}
+
+.expose .card.card-plain .card-body {
+  margin-top: 60px;
+}
+
+@media (max-width: 567px) {
+  .expose .card.card-plain {
+    text-align: center;
+  }
+  .expose h6 {
+      font-size: 1em;
+  }
+  .section.expose {
+    padding: 15px 0 15px 0,
+  }
+  .expose .title h2 {
+    margin-bottom: 15px;
+    font-size: 32px;
   }
 }

@@ -65,34 +65,16 @@
       </div>
     </div>
 
-    <% @listing.photos.each do |photo| %>
-      <% cl_image_tag photo.path, width: 700, height: 500, crop: :fill %>
-    <% end %>
-
-
     <div class="section" id="carousel">
       <div class="container">
-        <div class="row">
 
           <div class="col-md-8 ml-auto mr-auto">
-            <div class="show-card page-carousel">
-              <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-
-                <div class="carousel-inner" role="listbox">
-
-                  <% @listing.photos.each do |photo| %>
-                    <div class="carousel-item">
-                      <img class="d-block img-fluid" src='<% cl_image_tag photo.path, width: 700, height: 500, crop: :fill %>'>
-                    </div>
-                  <% end %>
-
-                </div>
-
+            <% @listing.photos.each do |photo| %>
+              <% cl_image_tag photo.path, crop: :fill %>
               </div>
-            </div>
+            <% end %>
           </div>
 
-        </div>
       </div>
     </div>
 
@@ -198,4 +180,3 @@
 
   </div>
 </div>
-
