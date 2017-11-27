@@ -3,10 +3,12 @@
   <div class="page-header " style="background-image: url('<%= cl_image_path @listing.photos.first.path %>')">
     <div class="filter"></div>
     <div class="content-center">
+
       <div class="motto">
         <h1 class="text-center show-title"><%= @listing.title %></h1>
         <h3 class="text-center show-caption"><%= @listing.caption %></h3>
       </div>
+
       <div class="motto">
         <%= cl_image_tag @listing.user.photos.first.path, crop: :fill, width: 300, height: 300, class: "show-img-circle img-responsive text-center media-object", alt: "Rounded Image" %>
         <h3 class="text-center"><%= @listing.user.first_name %></h3>
@@ -18,9 +20,6 @@
         <% end %>
         <p></p>
         <p style="font-weight: 100;">From <strong>&euro; 975.00</strong></p>
-
-
-
       </div>
 
     </div>
@@ -65,6 +64,11 @@
         </div>
       </div>
     </div>
+
+    <% @listing.photos.each do |photo| %>
+      <% cl_image_tag photo.path, width: 700, height: 500, crop: :fill %>
+    <% end %>
+
 
     <div class="section" id="carousel">
       <div class="container">

@@ -6,14 +6,24 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-puts "Starting seed..."
+puts "Deleting database"
   # Event.destroy_all
   # Booking.destroy_all
+  # Category.destroy_all
   Listing.destroy_all
   User.destroy_all
-puts "Database dropped"
+puts "Database deleted"
+
+# CATEGORIES
+# puts "Creating categories"
+
+# yoga = Category.create(
+# walking = Category.create(
+# hiking = Category.create(
+# trek  = Category.create(
 
 # USERS
+puts "Creating users"
 
 hillary = User.create(first_name: "Hillary", last_name: "Parks", photo_urls: ["https://images.pexels.com/photos/567452/pexels-photo-567452.jpeg?h=350&auto=compress&cs=tinysrgb"], email: "hillary@gmail.com", password: "123456")
 nicolas = User.create(first_name: "Nicolas", last_name: "Feer", photo_urls: ["https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/zqnoyn0jjimopwbvjij7.jpg"], email: "atmosfeer@gmail.com", password: "RubyOnRails")
@@ -26,6 +36,7 @@ angela = User.create(first_name: "Angela", last_name: "Parks", photo_urls: ["htt
 joanna = User.create(first_name: "Joanna", last_name: "Neilson", photo_urls: ["http://res.cloudinary.com/acroyoga-international/image/asset/Jen-290f25e22ffbcf8d78a6ca3c7c65209b.jpg"], email: "joanna@gmail.com", password: "123456")
 
 # LISTINGS
+puts "Creating listings"
 
 # Yoga retreat
 urls = ['http://cdn.cnn.com/cnnnext/dam/assets/160415122850-womens-sacred-expression-retreat-in-lake-atitlan-guatemala-super-169.jpg']
@@ -49,6 +60,7 @@ wellbeing.photo_urls = urls
 wellbeing.save
 
 # EVENTS
+puts "Creating events"
 
 # event_one = Event.new(max_capacity: 4)
 # event_one.listing = yoga
@@ -72,6 +84,7 @@ wellbeing.save
 # event_third.save
 
 # # BOOKINGS
+puts "Creating bookings"
 
 # booking_one = Booking.new(status: "Pending")
 # booking_one.listing = yoga

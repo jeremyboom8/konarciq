@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'contact', to: "pages#contact"
   get 'about', to: "pages#about"
+  get 'host', to: 'dashboards#host'
 
   resources :listings do
     resources :bookings, only: [:create, :show, :edit, :update] # :except or only:
