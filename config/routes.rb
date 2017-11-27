@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   get 'host', to: 'dashboards#host'
 
   resources :listings do
-    resources :bookings, only: [:create, :show, :edit, :update] # :except or only:
-    resources :reviews, only: [:create, :show, :edit, :update] # :except or only:
-    resources :events, only: [:index, :show, :edit, :new] # :except or only:
+    resources :reviews, only: [:new, :create, :show, :edit, :update] # :except or only:
+    resources :events, only: [:index, :show, :edit, :new] do  # :except or only:
+      resources :bookings, only: [:new, :create, :show, :edit, :update]
+    end # :except or only:
   end
 
   devise_for :users

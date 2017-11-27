@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :index ]
+  skip_before_action :authenticate_user!, only: [ :index, :show ]
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -11,6 +11,7 @@ class ListingsController < ApplicationController
       marker.lat listing.latitude
       marker.lng listing.longitude
       marker.infowindow "<div>#{listing.user.photo.path}</div>"
+      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
     end
   end
 
@@ -27,6 +28,7 @@ class ListingsController < ApplicationController
  def create
     @listing = Listing.new(listing_params)
     @listing.user = current_user
+    # @youtube_id = params[:youtube_url].match(/?:http:\/\/)?(?:www\.)?(?:youtube\.com)\/(?:watch\?v=)?(.+/)
     if @listing.save
       redirect_to listing_path(@listing)
     else

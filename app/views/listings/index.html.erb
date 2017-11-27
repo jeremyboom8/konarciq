@@ -25,7 +25,7 @@
   <div id="map"></div>
 
   <% content_for(:after_js) do %>
-    <%= javascript_tag do %>
+    <script>
       var handler = Gmaps.build('Google');
       handler.buildMap({ provider: { scrollwheel: false }, internal: { id: 'map' } }, function() {
         markers = handler.addMarkers(<%= raw @markers.to_json %>);
@@ -37,7 +37,7 @@
           handler.getMap().setZoom(14);
         }
       });
-    <% end %>
+    </script>
   <% end %>
 
 </div>

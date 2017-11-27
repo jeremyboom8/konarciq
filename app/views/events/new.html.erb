@@ -1,2 +1,9 @@
 <h1>Events#new</h1>
 <p>Find me in app/views/events/new.html.erb</p>
+Schedule a new event
+
+<%= simple_form_for [@listing, @event] do |f| %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.submit "Book now", class: "btn btn-primary" %>
+<% end %>
