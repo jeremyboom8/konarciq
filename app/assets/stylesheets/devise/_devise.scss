@@ -3,9 +3,15 @@
   padding: 15px;
   margin: 0 auto;
 }
+.input-password, .input-email {
+  font-size: 16px;
+}
 .form-devise .form-devise-heading,
 .form-devise .checkbox {
   margin-bottom: 10px;
+}
+input.form-control {
+  font-size: 16px;
 }
 .form-devise .checkbox {
   font-weight: 400;
