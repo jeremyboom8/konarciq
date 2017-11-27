@@ -14,6 +14,11 @@ class ListingsController < ApplicationController
       end
     else
       @listings = Listing.all
+      @markers = Gmaps4rails.build_markers(@listings) do |listing, marker|
+        marker.lat listing.latitude
+        marker.lng listing.longitude
+        # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+      end
     end
   end
 

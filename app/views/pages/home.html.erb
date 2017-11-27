@@ -1,7 +1,8 @@
-<section class="jumbotron text-center">
+<!-- Jumbotron with search bar -->
+<div class="jumbotron text-center" style="background-image: linear-gradient(-225deg, #1111110d 0%, #1111114d 50%), url('https://images.unsplash.com/photo-1509914398892-963f53e6e2f1?auto=format&fit=crop&w=1350&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D');">
   <div class="container justify-content-center">
-    <h1 class="display-3">Feeling stressed?</h1>
-    <h2 id="home-h2">Go out and explore</h2>
+    <h1 class="display-3">Explore sustainably</h1>
+    <h2 id="home-h2">Find eco friendly adventures</h2>
 
     <%= form_tag listings_path, method: 'get', class: "form-inline justify-content-center home-search", id: "location-form" do %>
       <%= text_field_tag :locationsearch, "", class: "location-search form-control" %>
@@ -9,7 +10,57 @@
     <% end %>
 
   </div>
-</section>
+</div>
+
+<div class="expose section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 ml-auto mr-auto text-center">
+        <h2 class="title">Decentralized Travel</h2>
+        <h5 class="description">This is the paragraph where you can write more details about your projects. Keep you user engaged by providing meaningful information.</h5>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-5 ml-auto">
+        <div class="card" data-background="image" style="background-image: url('https://images.unsplash.com/photo-1484544808355-8ec84e534d75?auto=format&fit=crop&w=1066&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D')">
+        </div>
+      </div>
+      <div class="col-md-5 mr-auto">
+        <div class="card card-plain">
+          <div class="card-body">
+            <h6 class="card-category">Find hidden gems</h6>
+            <a href="#pablo">
+              <h3 class="card-title">Find hidden gems</h3>
+            </a>
+            <p class="card-description">Artificial intelligence-focused investment funds are a dime a dozen these days. Everyone knows there’s money to be made from AI, but to capture value, good VCs know they need to back products and not technologies.</p>
+            <%= link_to "Explore", listings_path, class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+      <div class="col-md-5 ml-auto">
+        <div class="card card-plain">
+          <div class="card-body">
+            <h6 class="card-category">Sustainable travel</h6>
+            <a href="#pablo">
+              <h3 class="card-title">Sustainable travel</h3>
+            </a>
+            <p class="card-description">The United Nations 70th General Assembly has designated 2017 as the International Year of Sustainable Tourism for Development.</p>
+            <a class="btn btn-primary" target="_blank" href="http://www.tourism4development2017.org/why-tourism/">Why tourism?</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-5 mr-auto">
+        <div class="card" data-background="image" style="background-image: url('https://images.unsplash.com/photo-1490380169520-0a4b88d52565?auto=format&fit=crop&w=1050&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D')">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script>
   // Google Maps Autocomplete
