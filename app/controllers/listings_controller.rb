@@ -6,12 +6,21 @@ class ListingsController < ApplicationController
     if params[:locationsearch].present?
       @locationsearch = params[:locationsearch]
       @listings = Listing.near(@locationsearch, 14)
-    end
-    @markers = Gmaps4rails.build_markers(@listings) do |listing, marker|
-      marker.lat listing.latitude
-      marker.lng listing.longitude
-      marker.infowindow "<div>#{listing.user.photo.path}</div>"
-      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+
+      @markers = Gmaps4rails.build_markers(@listings) do |listing, marker|
+        marker.lat listing.latitude
+        marker.lng listing.longitude
+        marker.infowindow "<div>#{listing.user.photo.path}</div>"
+        # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+      end
+    else
+      @listings = Listing.all
+
+      @markers = Gmaps4rails.build_markers(@listings) do |listing, marker|
+        marker.lat listing.latitude
+        marker.lng listing.longitude
+        # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+      end
     end
   end
 
