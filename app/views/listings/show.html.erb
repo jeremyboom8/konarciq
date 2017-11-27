@@ -14,9 +14,10 @@
         <h3 class="text-center"><%= @listing.user.first_name %></h3>
         <p></p>
         <% if @listing.user == current_user %>
-          <%= link_to "Edit listing", edit_listing_path, class: "btn btn-primary btn-wd btn-lg text-center"  %>
+          <%= link_to "Edit listing", edit_listing_path, class: "btn btn-edit btn-wd btn-lg text-center" %>
+          <%= link_to "Timetable", new_listing_event_path(@listing), class: "btn btn-primary btn-wd btn-lg text-center" %>
         <% else %>
-          <a href="#" class="btn btn-primary btn-wd btn-lg text-center">Book a spot</a>
+          <%= link_to "Book a spot", listing_events_path(@listing), class: "btn btn-primary btn-wd btn-lg text-center"%>
         <% end %>
         <p></p>
         <p style="font-weight: 100;">From <strong>&euro; 975.00</strong></p>
@@ -152,7 +153,7 @@
 
       <!-- Post a review section -->
       <div class="section section-gray">
-        <div class="container tim-container">
+        <div class="container">
           <div class="row">
 
             <div class="col-md-8 ml-auto mr-auto">

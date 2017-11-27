@@ -63,28 +63,25 @@ wellbeing.save
 # EVENTS
 puts "Creating events"
 
-# event_one = Event.new(max_capacity: 4)
-# event_one.listing = yoga
-# event_one.user = john
-# event_one.start_date = Date.today + rand(150)
-# event_one.end_date = Date.today + rand(150)
-# event_one.save
+event_one = Event.new(max_capacity: 4)
+event_one.listing = meditation
+event_one.start_date = Date.today
+event_one.end_date = Date.today+rand
+event_one.save
 
-# event_two = Event.new(max_capacity: 10)
-# event_two.listing = wellbeing
-# event_two.user = hillary
-# event_two.start_date = Date.today + rand(150)
-# event_two.end_date = Date.today + rand(150)
-# event_two.save
+event_two = Event.new(max_capacity: 10)
+event_two.listing = meditation
+event_two.start_date = Date.today
+event_two.end_date = Date.today+rand
+event_two.save
 
-# event_third = Event.new(max_capacity: 8)
-# event_third.listing = meditation
-# event_third.user = hillary
-# event_third.start_date = Date.today + rand(150)
-# event_third.end_date = Date.today + rand(150)
-# event_third.save
+event_third = Event.new(max_capacity: 8)
+event_third.listing = meditation
+event_third.start_date = Date.today
+event_third.end_date = Date.today+rand
+event_third.save
 
-# # BOOKINGS
+# BOOKINGS
 puts "Creating bookings"
 
 # booking_one = Booking.new(status: "Pending")

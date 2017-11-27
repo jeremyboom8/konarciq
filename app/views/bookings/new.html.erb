@@ -1,8 +1,23 @@
-<h1>Bookings#new</h1>
-<p>Find me in app/views/bookings/new.html.erb</p>
+<%= simple_form_for [@listing, @event, @booking] do |f| %>
+  <div class="section section-gray">
+    <div class="container" style="height: 100vh;">
+      <div class="row">
 
-<%= simple_form_for [@listing, @booking] do |f| %>
-  <% f.input  %>
-  <% f.input %>
-  <% f.submit "Book a spot" %>
+        <div class="col-md-8 ml-auto mr-auto">
+
+          <h4 class="text-center">Add message to <%= @listing.user.first_name %>?</h4>
+
+          <div class="media media-post">
+            <div class="media-body">
+              <%= f.input :customer_message, class: "form-control border-input", placeholder: "Your message here...", maxlength: "300", rows: "6", label: false  %>
+              <div class="media-footer">
+              <%= f.submit "Continue to payment", class: "btn btn-primary btn-lg text-center pull-right" %>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>
