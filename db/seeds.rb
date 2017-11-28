@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts "Deleting database"
-  # Event.destroy_all
+  Event.destroy_all
   # Booking.destroy_all
   # Category.destroy_all
   Listing.destroy_all
@@ -42,21 +42,21 @@ puts "Creating listings"
 # Yoga retreat
 urls = ['http://cdn.cnn.com/cnnnext/dam/assets/160415122850-womens-sacred-expression-retreat-in-lake-atitlan-guatemala-super-169.jpg']
 yoga = Listing.new(title: "Yoga Retreat", caption: "Best yoga retreat (caption)",description: "Amazing yoga retreat", address: "Lund, Sweden")
-yoga.user = jeremy
+yoga.user = frida
 yoga.photo_urls = urls
 yoga.save
 
 # Meditation retreat
 urls = ["https://www.kamalaya.com/fileadmin/user_upload/___Group-Meditation-retreat.jpg"]
 meditation = Listing.new(title: "Meditation Retreat", caption: "Best meditation retreat (caption)",description: "Amazing meditation retreat", address: "Copenhagen, Denmark")
-meditation.user = cameron
+meditation.user = jeremy
 meditation.photo_urls = urls
 meditation.save
 
 # Well-being Magic retreat
 urls = ["http://www.finland-product-manual.com/uploads/8/0/7/8/80787950/_3464881_orig.jpg"]
 wellbeing = Listing.new(title: "Well-being Magic", caption: "Best well being journey (caption)",description: "Amazing well-being journey", address: "Helsingborg, Sweden")
-wellbeing.user = bill
+wellbeing.user = angela
 wellbeing.photo_urls = urls
 wellbeing.save
 
@@ -67,19 +67,44 @@ event_one = Event.new(max_capacity: 4)
 event_one.listing = meditation
 event_one.start_date = Date.today
 event_one.end_date = Date.today+rand
+event_one.price = 1000
 event_one.save
 
 event_two = Event.new(max_capacity: 10)
 event_two.listing = meditation
 event_two.start_date = Date.today
 event_two.end_date = Date.today+rand
+event_two.price = 2000
 event_two.save
 
-event_third = Event.new(max_capacity: 8)
-event_third.listing = meditation
-event_third.start_date = Date.today
-event_third.end_date = Date.today+rand
-event_third.save
+event_three = Event.new(max_capacity: 8)
+event_three.listing = meditation
+event_three.start_date = Date.today
+event_three.end_date = Date.today+rand
+event_three.price = 2000
+event_three.save
+
+event_four = Event.new(max_capacity: 4)
+event_four.listing = meditation
+event_four.start_date = Date.today
+event_four.end_date = Date.today+rand
+event_four.price = 1000
+event_four.save
+
+event_five = Event.new(max_capacity: 10)
+event_five.listing = meditation
+event_five.start_date = Date.today
+event_five.end_date = Date.today+rand
+event_five.price = 2000
+event_five.save
+
+event_six = Event.new(max_capacity: 8)
+event_six.listing = meditation
+event_six.start_date = Date.today
+event_six.end_date = Date.today+rand
+event_six.price = 2000
+event_six.save
+
 
 # BOOKINGS
 puts "Creating bookings"
