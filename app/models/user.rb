@@ -11,4 +11,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  def has_reviewed?(listing)
+    listing.reviews.exists?(user: self, listing_id: listing.id)
+  end
 end

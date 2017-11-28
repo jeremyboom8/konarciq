@@ -20,7 +20,14 @@
           <%= link_to "Book a spot", listing_events_path(@listing), class: "btn btn-primary btn-wd btn-lg text-center"%>
         <% end %>
         <p></p>
-        <p style="font-weight: 100;">From <strong>&euro; 975.00</strong></p>
+
+        <% if @listing.events.exists? %>
+          <% lowest_priced_event = @listing.events.min_by { |h| h.price} %>
+          <p style="font-weight: 100;">From <strong><%= humanized_money_with_symbol(lowest_priced_event.price) %></strong></p>
+        <% else %>
+          <p style="font-weight: 100;">No classes atm</p>
+        <% end %>
+
       </div>
 
     </div>
@@ -66,27 +73,29 @@
       </div>
     </div>
 
-    <div class="section" id="carousel">
+    <!-- <div class="section" id="carousel">
       <div class="container">
 
           <div class="col-md-8 ml-auto mr-auto">
-            <% @listing.photos.each do |photo| %>
-              <% cl_image_tag photo.path, crop: :fill %>
+            <%# @listing.photos.each do |photo| %>
+              <%# cl_image_tag photo.path, crop: :fill %>
               </div>
-            <% end %>
+            <%# end %>
           </div>
 
       </div>
-    </div>
+    </div> -->
 
-    <div class="section section-gray">
+    <div class="section">
       <div class="container">
         <div class="row">
 
           <div class="col-xs-12 col-md-6 offset-md-3 text-center">
-            <%= image_tag "user-jeremy.jpg", class: "show-img-circle img-no-padding img-responsive show-avatar", alt: "Rounded Image" %>
-            <h5 style="margin-top: 20px;">Joe Gardner</h5>
-            <p class="show-p">Constructed from robust full-grain leather, it's finished with the label's 'city webbing' - a rich take on the brand's signature stripes.</p>
+
+            <%= cl_image_tag @listing.user.photos.first.path, crop: :fill, width: 300, height: 300, class: "show-img-circle img-responsive text-center media-object", alt: "Rounded Image" %>
+
+            <h5 style="margin-top: 20px;"><%= @listing.user.first_name %></h5>
+            <p class="show-p"><%= @listing.user.bio %></p>
             <br/>
             <!-- <a href="#" class="btn btn-primary btn-wd">View Profile</a> -->
           </div>
@@ -101,7 +110,7 @@
       </div>
     </div>
 
-    <div class="section section-nude-gray">
+    <div class="section section-gray">
         <div class="container">
 
           <!-- All reviews -->
@@ -109,41 +118,38 @@
             <div class="col-md-8 ml-auto mr-auto">
               <div class="media-area">
 
-                <h3 class="text-center">Guestbook · (10)</h3>
+                <h3 class="text-center">Guestbook posts · (<%= @listing.reviews.count %>)</h3>
 
-                <!-- Review -->
-                <div class="media">
+                <% if @listing.reviews.blank? %>
 
-                  <a class="pull-left" href="#">
-                    <div class="avatar">
-                      <%= image_tag "user-jeremy.jpg", class: "media-object", alt: "Rounded Image" %>
-                    </div>
-                  </a>
+                  <p class="text-center" style="margin-top: 20px;">Be the first to leave a post in <%= @listing.user.first_name %>'s guestbook</p>
 
-                  <div class="media-body">
-                    <h5 class="media-heading">Flume</h5>
-                    <div class="pull-right">
-                      <h6 class="text-muted">Nov 14, 2017</h6>
-                    </div>
-                    <p>Hello guys, nice to have you on the platform! There will be a lot of great stuff coming soon. We will keep you posted for the latest news.</p>
-                  </div>
-                </div>
+                <% else %>
 
-                <div class="media">
-                  <a class="pull-left" href="#">
-                    <div class="avatar">
-                      <%= image_tag "user-jeremy.jpg", class: "media-object", alt: "Rounded Image" %>
+                  <% @listing.reviews.each do |review| %>
+
+                    <!-- Review -->
+                    <div class="media">
+
+                      <a class="pull-left" href="#">
+                        <div class="avatar">
+                          <%= cl_image_tag review.user.photos.first.path, crop: :fill, class: "media-object" %>
+                        </div>
+                      </a>
+
+                      <div class="media-body">
+                        <h5 class="media-heading">Flume</h5>
+                        <div class="pull-right">
+                          <h6 class="text-muted"> <%= review.created_at.strftime("%b %e %Y") %></h6>
+                        </div>
+                        <p><%= review.content %></p>
+                      </div>
+
                     </div>
-                  </a>
-                  <div class="media-body">
-                    <h5 class="media-heading">Banks</h5>
-                    <div class="pull-right">
-                      <h6 class="text-muted">Nov 11, 2017</h6>
-                    </div>
-                    <p>Hello guys, nice to have you on the platform! There will be a lot of great stuff coming soon. We will keep you posted for the latest news.</p>
-                    <p> Don't forget, You're Awesome!</p>
-                  </div>
-                </div>
+
+                  <% end %>
+
+                <% end %>
 
               </div>
             </div>
@@ -151,33 +157,45 @@
         </div>
       </div>
 
-      <!-- Post a review section -->
-      <div class="section section-gray">
-        <div class="container">
-          <div class="row">
 
-            <div class="col-md-8 ml-auto mr-auto">
+      <% if current_user && !current_user.has_reviewed?(@listing) %>
+        <!-- Post a review section -->
+        <div class="section section-gray">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 ml-auto mr-auto">
 
-              <h3 class="text-center">Post to the guestbook</h3>
+                <h3 class="text-center">Post to the guestbook</h3>
 
-              <div class="media media-post">
-                <a class="pull-left author" href="#">
-                  <div class="avatar">
-                    <%= image_tag "user-jeremy.jpg", class: "media-object", alt: "Rounded Image" %>
+                <div class="media media-post">
+
+                  <a class="pull-left author" href="#">
+                    <div class="avatar">
+                      <%= image_tag "user-jeremy.jpg", class: "media-object", alt: "Rounded Image" %>
+                    </div>
+                  </a>
+
+                  <%= simple_form_for([ @listing, @review ], class: "media-body") do |form| %>
+                    <%= form.input :content, as: :text, placeholder: 'Your post here...', class: "form-control border-input" %>
+                    <div class="media-footer">
+                      <%= form.button :submit, class: "btn btn-primary btn-wd pull-right" %>
+                    </div>
+                  <% end %>
+
+                  <div class="media-body">
+                    <textarea class="form-control border-input" placeholder="Your review here..." rows="6"></textarea>
+                    <div class="media-footer">
+                      <a href="#" class="btn btn-primary btn-wd pull-right">Post now</a>
+                    </div>
                   </div>
-                </a>
-                <div class="media-body">
-                  <textarea class="form-control border-input" placeholder="Your review here..." rows="6"></textarea>
-                  <div class="media-footer">
-                    <a href="#" class="btn btn-primary btn-wd pull-right">Post Review</a>
-                  </div>
+
                 </div>
-              </div>
 
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      <% end %>
 
   </div>
 </div>
