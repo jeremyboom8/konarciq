@@ -6,6 +6,9 @@ class CreateBookings < ActiveRecord::Migration[5.1]
       t.string :status
       t.references :user, foreign_key: true
       t.references :listing, foreign_key: true
+      t.string :event_sku
+      t.monetize :amount, currency: { present: false }
+      t.json :payment
 
       t.timestamps
     end

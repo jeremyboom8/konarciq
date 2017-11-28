@@ -5,6 +5,7 @@
 
         <div class="col-md-8 ml-auto mr-auto">
 
+          <h1 class="text-center show-title">Checkout</h1>
           <h4 class="text-center">Add message to <%= @listing.user.first_name %>?</h4>
 
           <div class="media media-post">
@@ -20,9 +21,4 @@
       </div>
     </div>
   </div>
-<% end %>
-
-<%= form_tag orders_path do %>
-  <%= hidden_field_tag 'teddy_id', @teddy.id %>
-  <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
 <% end %>

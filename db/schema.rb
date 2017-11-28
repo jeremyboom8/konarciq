@@ -32,6 +32,9 @@ ActiveRecord::Schema.define(version: 20171128092248) do
 
   create_table "bookings", force: :cascade do |t|
     t.bigint "user_id"
+    t.string "event_sku"
+    t.integer "amount_cents", default: 0, null: false
+    t.json "payment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "event_id"
