@@ -33,6 +33,7 @@ class ListingsController < ApplicationController
     @booking = Booking.new
     @listing = Listing.find(params[:id])
     @listing_coordinates = { lat: @listing.latitude, lng: @listing.longitude }
+    @review = Review.new  # <-- You need this now.
   end
 
  def create

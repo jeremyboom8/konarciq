@@ -42,7 +42,7 @@ puts "Creating listings"
 # Yoga retreat
 urls = ['http://cdn.cnn.com/cnnnext/dam/assets/160415122850-womens-sacred-expression-retreat-in-lake-atitlan-guatemala-super-169.jpg']
 yoga = Listing.new(title: "Yoga Retreat", caption: "Best yoga retreat (caption)",description: "Amazing yoga retreat", address: "Lund, Sweden")
-yoga.user = frida
+yoga.user = joanna
 yoga.photo_urls = urls
 yoga.save
 

@@ -4,7 +4,7 @@
       <% @listings.each do |listing| %>
 
         <!-- Start of the card -->
-        <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3">
+        <div class="col-xs-12 col-md-6 col-xl-3">
           <div class="card profile-card">
             <%=  link_to "", listing_path(listing), class: "profile-card-link", target: "_blank" %>
             <div class="profile-card-cover" style="background-image: url('<%= cl_image_path listing.photos.first.path %>')"></div>

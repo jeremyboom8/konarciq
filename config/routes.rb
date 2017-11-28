@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'host', to: 'dashboards#host'
 
   resources :listings do
-    resources :reviews, only: [:new, :create, :show, :edit, :update] # You can use :except or only:
+    resources :reviews, only: [:create] # You can use :except or only:
     resources :events, only: [:index, :show, :edit, :new] do
       resources :bookings, only: [:show, :create, :new] do
         resources :payments, only: [:new, :create]

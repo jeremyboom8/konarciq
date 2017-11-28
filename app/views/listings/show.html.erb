@@ -1,3 +1,16 @@
+<div id="reviews">
+  <% if @listing.reviews.blank? %>
+    Be the first to leave a review for <%= @listing.title %>
+  <% else %>
+    <% @listing.reviews.each do |review| %>
+      <%= render 'reviews/show', review: review %>
+    <% end %>
+  <% end %>
+</div>
+
+<%= render 'reviews/form', listing: @listing, review: @review %>
+
+
 <div class="wrapper">
 
   <div class="page-header " style="background-image: url('<%= cl_image_path @listing.photos.first.path %>')">
