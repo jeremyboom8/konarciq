@@ -12,25 +12,28 @@ class PaymentsController < ApplicationController
   def create
     # Callback from Stripe
     # Store info about the payment
-    customer = Stripe::Customer.create(
-      source: params[:stripeToken],
-      email:  params[:stripeEmail]
-    )
+    begin
+      customer = Stripe::Customer.create(
+        source: params[:stripeToken],
+        email:  params[:stripeEmail]
+      )
 
-    charge = Stripe::Charge.create(
-      customer:     customer.id,   # You should store this customer id and re-use it.
-      amount:       @booking.amount_cents,
-      description:  "Payment for teddy #{@booking.event_sku} for booking #{@booking.id}",
-      currency:     @booking.amount.currency
-    )
+      charge = Stripe::Charge.create(
+        customer:     customer.id,   # You should store this customer id and re-use it.
+        amount:       @booking.amount_cents,
+        description:  "Payment for teddy #{@booking.event_sku} for booking #{@booking.id}",
+        currency:     @booking.amount.currency
+      )
 
+      @booking.update(payment: charge.to_json)
+      flash[:notice] = "Your booking was paid for successfully"
+      redirect_to listing_event_booking_path(@booking.event.listing, @booking.event, @booking)
+    rescue Stripe::CardError => e
+      flash[:alert] = e.message
+      redirect_to new_listing_event_booking_payment_path(@booking)
+    end
 
-    @booking.update(payment: charge.to_json)
-    flash[:notice] = "Your booking was paid successfully"
-    redirect_to listing_event_booking_path(@booking.event.listing, @booking.event, @booking)
-  rescue Stripe::CardError => e
-    flash[:alert] = e.message
-    redirect_to new_listing_event_booking_payment_path(@booking)
+    # remove 1 from max_capacity
   end
 
 private
