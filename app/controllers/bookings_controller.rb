@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  skip_before_action :authenticate_user!
   before_action :set_booking, only: [:show]
   before_action :set_event, only: [:create, :new, :show]
 
@@ -7,15 +8,18 @@ class BookingsController < ApplicationController
   end
 
   def show
+    @booking = Booking.find(params[:id])
   end
 
-  # TODO add message to booking
   def create
-    @booking = Booking.new(booking_params)
-    @booking.user = current_user
-    @booking.event = @event
-    @booking.customer_message = params[:customer_message]
-    @booking.save
+    set_listing
+    event = Event.find(params[:event_id])
+    booking = Booking.new(event_sku: event.sku, amount_cents: event.price_cents)
+    booking.customer_message = params[:customer_message]
+    booking.user = current_user
+    booking.event = event
+    booking.save
+    redirect_to new_listing_event_booking_payment_path(@listing, event, booking)
   end
 
   def new

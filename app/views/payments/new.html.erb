@@ -1,0 +1,18 @@
+<!-- STRIPE BUTTON -->
+<h1>Purchase of Event <%= @booking.event_sku %></h1>
+<%= form_tag listing_event_booking_payments_path(@booking) do %>
+  <article>
+    <label class="amount">
+      <span>Amount: <%= humanized_money_with_symbol(@booking.amount) %></span>
+    </label>
+  </article>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+    data-name="My Event"
+    data-email="<%= current_user.email %>"
+    data-description="Event <%= @booking.event_sku %>"
+    data-amount="<%= @booking.amount_cents %>"
+    data-currency="<%= @booking.amount.currency %>">
+  </script>
+<% end %>
