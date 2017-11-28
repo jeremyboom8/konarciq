@@ -32,8 +32,8 @@ class PaymentsController < ApplicationController
       flash[:alert] = e.message
       redirect_to new_listing_event_booking_payment_path(@booking)
     end
-
-    # remove 1 from max_capacity
+    
+    # TODO: remove 1 from max_capacity
   end
 
 private
