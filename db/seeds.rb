@@ -45,6 +45,8 @@ yoga = Listing.new(title: "Yoga Retreat", caption: "Best yoga retreat (caption)"
 yoga.user = joanna
 yoga.photo_urls = urls
 yoga.save
+puts "Listing created"
+
 
 # Meditation retreat
 urls = ["https://www.kamalaya.com/fileadmin/user_upload/___Group-Meditation-retreat.jpg"]
@@ -52,6 +54,8 @@ meditation = Listing.new(title: "Meditation Retreat", caption: "Best meditation 
 meditation.user = jeremy
 meditation.photo_urls = urls
 meditation.save
+puts "Listing created"
+
 
 # Well-being Magic retreat
 urls = ["http://www.finland-product-manual.com/uploads/8/0/7/8/80787950/_3464881_orig.jpg"]
@@ -59,6 +63,8 @@ wellbeing = Listing.new(title: "Well-being Magic", caption: "Best well being jou
 wellbeing.user = angela
 wellbeing.photo_urls = urls
 wellbeing.save
+puts "Listing created"
+
 
 # EVENTS
 puts "Creating events"

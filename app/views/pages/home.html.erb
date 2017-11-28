@@ -127,3 +127,19 @@
   </div>
 </footer>
 
+<script>
+  // Google Maps Autocomplete
+
+  function onPlaceChanged() {
+    var place = this.getPlace();
+    var listAddress = document.getElementById('locationsearch');
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    var listAddress = document.getElementById('locationsearch');
+    if (listAddress) {
+      var autocomplete = new google.maps.places.Autocomplete(listAddress, { types: ['geocode'] });
+      google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
+    }
+  });
+</script>
