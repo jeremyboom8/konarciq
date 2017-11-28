@@ -5,13 +5,14 @@
 
         <div class="col-md-8 ml-auto mr-auto">
 
+          <h1 class="text-center show-title">Checkout</h1>
           <h4 class="text-center">Add message to <%= @listing.user.first_name %>?</h4>
 
           <div class="media media-post">
             <div class="media-body">
               <%= f.input :customer_message, class: "form-control border-input", placeholder: "Your message here...", maxlength: "300", rows: "6", label: false  %>
               <div class="media-footer">
-              <%= f.submit "Continue to payment", class: "btn btn-primary btn-lg text-center pull-right" %>
+              <%= f.submit "Continue to Payment", class: "btn btn-primary btn-lg text-center pull-right" %>
               </div>
             </div>
           </div>

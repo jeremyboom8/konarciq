@@ -54,29 +54,30 @@
 
     <!-- Extra Feature - add search in navbar: CSS = mobile-search-form -->
 
-    <%= form_tag listings_path, method: 'get', class: "form-inline justify-content-center my-2 my-lg-0 mobile-search-form home-search", id: "location-form" do %>
-      <%= text_field_tag :locationsearch, "", class: "location-search form-control mr-sm-2" %>
-      <%= submit_tag "Search", class: "btn btn-primary btn-primary my-2 my-sm-0", id: "home-search" %>
-    <% end %>
+    <%# ( <-- add =       ) form_tag listings_path, method: 'get', class: "form-inline justify-content-center my-2 my-lg-0 mobile-search-form home-search", id: "location-form" do %>
+      <%# ( <-- add =       ) text_field_tag :locationsearch, "", class: "location-search form-control mr-sm-2" %>
+      <%# ( <-- add =       ) submit_tag "Search", class: "btn btn-primary btn-primary my-2 my-sm-0", id: "home-search" %>
+    <%# end %>
 
   </div>
 </nav>
 
 
-
 <script>
-  // Google Maps Autocomplete
-  const addressSearch = document.querySelector("#locationsearch");
-  const locationValue = document.querySelector("#location-value");
-  function onPlaceChanged() {
-    var place = this.getPlace();
-    var listAddress = document.getElementById('locationsearch');
-  }
-  document.addEventListener("DOMContentLoaded", function() {
-    var listAddress = document.getElementById('locationsearch');
-    if (listAddress) {
-      var autocomplete = new google.maps.places.Autocomplete(listAddress, { types: ['geocode'] });
-      google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
-    }
-  });
-</script>
+      // Google Maps Autocomplete
+      const addressSearchHome = document.querySelector("#locationsearch");
+      const locationValueHome = document.querySelector("#location-value");
+
+      function onPlaceChanged() {
+        var place = this.getPlace();
+        var listAddress = document.getElementById('locationsearch');
+      }
+
+      document.addEventListener("DOMContentLoaded", function() {
+        var listAddress = document.getElementById('locationsearch');
+        if (listAddress) {
+          var autocomplete = new google.maps.places.Autocomplete(listAddress, { types: ['geocode'] });
+          google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
+        }
+      });
+    </script>

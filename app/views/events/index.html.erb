@@ -6,6 +6,7 @@
           <h3>Start date: <%= event.start_date %></h3>
           <h3>End date: <%= event.end_date %></h3>
           <h3>Spaces left: <%= event.max_capacity %></h3>
+          <p><%= humanized_money_with_symbol(event.price) %></p>
       <% end %>
     <% end %>
   </div>
