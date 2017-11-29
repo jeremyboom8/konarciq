@@ -14,7 +14,6 @@
   min-height: 100vh;
   max-height: 999px;
   overflow: hidden;
-  position: relative;
   width: 100%;
   z-index: -4;
 }
@@ -22,11 +21,9 @@
 .profile-page .page-header .filter::after {
   background-color: rgba(0, 0, 0, 0.5);
   content: "";
-  display: block;
   height: 100%;
   left: 0;
   top: 0;
-  position: absolute;
   width: 100%;
   z-index: -4;
 }
@@ -52,6 +49,10 @@
   margin-top: 15px;
 }
 
+.ravioli {
+  margin-top: 10px;
+}
+
 @media (max-width: 576px) {
   .profile-page .owner .avatar {
     margin: -60px auto 0;
@@ -71,3 +72,4 @@
     background-color: white;
   }
 }
+

@@ -12,7 +12,6 @@
         <%= link_to user_path(@listing.user) do %>
           <%= cl_image_tag @listing.user.photos.first.path, crop: :fill, width: 300, height: 300, class: "show-img-circle img-responsive text-center media-object", alt: "Rounded Image" %>
         <% end %>
-
         <h3 class="text-center"><%= @listing.user.first_name %></h3>
         <p></p>
         <% if @listing.user == current_user %>
@@ -94,7 +93,9 @@
 
           <div class="col-xs-12 col-md-6 offset-md-3 text-center">
 
-            <%= cl_image_tag @listing.user.photos.first.path, crop: :fill, width: 300, height: 300, class: "show-img-circle img-responsive text-center media-object", alt: "Rounded Image" %>
+            <%= link_to user_path(@listing.user) do %>
+              <%= cl_image_tag @listing.user.photos.first.path, crop: :fill, width: 300, height: 300, class: "show-img-circle img-responsive text-center media-object", alt: "Rounded Image" %>
+            <% end %>
 
             <h5 style="margin-top: 20px;"><%= @listing.user.first_name %></h5>
             <p class="show-p"><%= @listing.user.bio %></p>
@@ -134,8 +135,15 @@
                     <div class="media">
 
                       <a class="pull-left" href="#">
+
                         <div class="avatar">
-                          <%= cl_image_tag review.user.photos.first.path, crop: :fill, height: 100, width: 100, class: "media-object" %>
+                          <%= link_to user_path(review.user) do %>
+
+
+                            <%= cl_image_tag review.user.photos.first.path, crop: :fill, height: 100, width: 100, class: "media-object" %>
+
+                          <% end %>
+
                         </div>
                       </a>
 

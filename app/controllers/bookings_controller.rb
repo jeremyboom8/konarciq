@@ -13,17 +13,38 @@ class BookingsController < ApplicationController
 
   def create
     set_listing
-    event = Event.find(params[:event_id])
-    booking = Booking.new(event_sku: event.sku, amount_cents: event.price_cents)
-    booking.customer_message = params[:customer_message]
-    booking.user = current_user
-    booking.event = event
-    booking.save
-    redirect_to new_listing_event_booking_payment_path(@listing, event, booking)
+    set_event
+    @booking = current_user.bookings.new(event: @event, event_sku: @event.sku, amount_cents: @event.price_cents)
+    begin
+      customer = Stripe::Customer.create(
+        source: params[:stripeToken],
+        email:  params[:stripeEmail]
+      )
+
+      charge = Stripe::Charge.create(
+        customer:     customer.id,   # You should store this customer id and re-use it.
+        amount:       @booking.amount_cents,
+        description:  "Payment for teddy #{@booking.event_sku} for booking #{@booking.id}",
+        currency:     @booking.amount.currency
+      )
+
+      @booking.payment = charge.to_json
+
+      if @booking.save
+        flash[:notice] = "Your booking was paid for successfully"
+        redirect_to listing_event_booking_path(@booking.event.listing, @booking.event, @booking)
+      else
+        redirect_to new_listing_event_booking_payment_path(@booking)
+      end
+    rescue Stripe::CardError => e
+      flash[:alert] = e.message
+      redirect_to new_listing_event_booking_payment_path(@booking)
+    end
   end
 
   def new
     set_listing
+    set_event
     @booking = Booking.new
   end
 

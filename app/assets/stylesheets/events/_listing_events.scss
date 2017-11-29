@@ -1,0 +1,137 @@
+.coloured-cards {
+  margin: 0;
+  padding: 15px;
+}
+
+.coloured-cards .card-column {
+  padding: 30px;
+}
+
+.coloured-cards .card {
+  border-radius: 12px;
+  box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
+  background-color: #FFFFFF;
+  color: #333333;
+  margin-bottom: 20px 15px 20px 15px;
+  position: relative;
+  z-index: 1;
+  border: 0 none;
+  transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease;
+}
+
+.coloured-cards .card:not(.card-plain):hover {
+  box-shadow: 0px 12px 19px -7px rgba(0, 0, 0, 0.3);
+  transform: translateY(-3px);
+}
+
+.coloured-cards .card a:not(.btn) {
+  color: #444444;
+}
+
+.coloured-cards .card a:not(.btn):hover,
+.card a:not(.btn):focus {
+  color: #333333;
+}
+
+.coloured-cards .card .card-description {
+  color: #9A9A9A;
+  margin-bottom: 5px;
+  margin-top: 15px;
+}
+
+.coloured-cards .card[data-radius="none"] {
+  border-radius: 0px;
+}
+
+.coloured-cards .card .card-category {
+  color: #9A9A9A;
+}
+
+.coloured-cards .card .card-body {
+  padding: 20px;
+}
+
+.coloured-cards .card .card-body .card-title {
+  margin: 5px 0 0 0;
+}
+
+.coloured-cards .card .card-body .card-category~.card-title {
+  margin-top: 5px;
+}
+
+.coloured-cards .card h6 {
+  font-size: 12px;
+  margin: 0;
+}
+
+.coloured-cards .card.card-just-text .card-body {
+  padding: 50px 65px;
+  text-align: center;
+}
+
+.coloured-cards .card[data-background="color"] .card-description,
+.card[data-color] .card-description {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.coloured-cards .card[data-background="color"] .card-title,
+.card[data-background="color"] .card-category,
+.card[data-background="color"] .card-body,
+.card[data-background="color"] a:not(.btn),
+.card[data-color] .card-title,
+.card[data-color] .card-category,
+.card[data-color] .card-body,
+.card[data-color] a:not(.btn) {
+  color: #FFFFFF!important;
+}
+
+.coloured-cards .card[data-background="color"] a:not(.btn):hover,
+.card[data-background="color"] a:not(.btn):focus,
+.card[data-color] a:not(.btn):hover,
+.card[data-color] a:not(.btn):focus {
+  color: #FFFFFF;
+}
+
+.coloured-cards .card[data-color="blue"] {
+  background: #fff;
+}
+
+.coloured-cards .card[data-color="green"] {
+  background: #86d9ab;
+}
+
+.coloured-cards .card[data-color="yellow"] {
+  background: #fcd27b;
+}
+
+.coloured-cards .card[data-color="brown"] {
+  background: #e4c4a1;
+}
+
+.coloured-cards .card[data-color="purple"] {
+  background: #cc90cc;
+}
+
+.coloured-cards .card[data-color="orange"] {
+  background: #f7765f;
+}
+
+.coloured-cards .card-big-shadow {
+  max-width: 320px;
+    position: relative;
+}
+
+.coloured-cards .card-big-shadow:before {
+    background-image: url(http://static.tumblr.com/i21wc39/coTmrkw40/shadow.png);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    bottom: -12%;
+    content: "";
+    display: block;
+    left: -12%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 0;
+}
