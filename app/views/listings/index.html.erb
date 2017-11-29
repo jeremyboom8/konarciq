@@ -3,25 +3,29 @@
 
       <% @listings.each do |listing| %>
 
+
+      <% 3.times do %>
         <!-- Start of the card -->
         <div class="col-xs-12 col-md-6 col-xl-3">
           <div class="card profile-card">
-            <%=  link_to "", listing_path(listing), class: "profile-card-link", target: "_blank" %>
             <div class="profile-card-cover" style="background-image: url('<%= cl_image_path listing.photos.first.path %>')"></div>
             <%= cl_image_tag listing.user.photos.first.path, crop: :fill, width: 100, height: 100, class: "profile-card-avatar" %>
             <div class="profile-card-body">
+
+              <h5 class="small-h5"><strong>NATURE · DENMARK</strong></h5>
               <h4 class="profile-card-first-name"><%= listing.title %></h4>
               <% if listing.events.exists? %>
                 <% lowest_priced_event = listing.events.min_by { |h| h.price} %>
-                <h6 class="profile-card-interests">Starting at <%= humanized_money_with_symbol(lowest_priced_event.price) %></h6>
+                <h6 class="profile-card-interests" style="padding-bottom: 11px;">Starting at <%= humanized_money_with_symbol(lowest_priced_event.price) %></h6>
               <% else %>
                 <h6 class="profile-card-interests">No classes atm</p>
               <% end %>
-              <p class="profile-card-description"><%= listing.caption %></p>
             </div>
+            <%= link_to "", listing_path(listing), class: "profile-card-link", target: "_blank" %>
           </div>
         </div>
         <!-- End of the card -->
+        <% end %>
 
       <% end %>
 

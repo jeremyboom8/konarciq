@@ -14,7 +14,14 @@
 
   </head>
   <body>
+    <% unless action_name == "home" || action_name == "show" %>
+      <%= render 'shared/navbar_white' %>
+    <% end %>
+    <% if action_name == "home" || action_name == "show" %>
+      <%= render 'shared/navbar_trans' %>
+    <% end %>
     <%= render 'shared/navbar' %>
+
     <%= render 'shared/flashes' %>
     <%= yield %>
 
