@@ -17,7 +17,7 @@
                   <% lowest_priced_event = listing.events.min_by { |h| h.price} %>
                   <h6 class="profile-card-interests" style="padding-bottom: 11px;">Starting at <%= humanized_money_with_symbol(lowest_priced_event.price) %></h6>
                 <% else %>
-                  <h6 class="profile-card-interests">No classes atm</p>
+                  <h6 class="profile-card-interests">No classes atm</h6>
                 <% end %>
               </div>
               <div style="@media (max-width: 576px) { display: none; }">
