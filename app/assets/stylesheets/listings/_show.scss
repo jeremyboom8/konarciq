@@ -1,13 +1,3 @@
-.back-to {
-  position: absolute;
-  left: 30px;
-  top: 20px;
-  font-size: 50px;
-}
-.back-button {
-  color: white;
-}
-
 .show-title {
   font-size: 90px;
   font-weight: 400;
@@ -164,7 +154,7 @@ textarea.form-control {
 }
 
 .page-header .filter::after {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.6);
   content: "";
   display: block;
   height: 100%;
