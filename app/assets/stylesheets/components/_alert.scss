@@ -8,6 +8,9 @@
   color: white;
   border: 0px solid white;
   border-radius: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 4;
 }
 .alert-info {
   background: #00C971;

@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-sm">
+
+  <!-- Dark logo in the navbar -->
+  <%= link_to image_tag("logo.svg", alt: "logo", class: 'navbar-brand'), '/' %>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="ion-android-funnel"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+    <%= form_tag listings_path, method: 'get', class: "form-inline justify-content-center my-2 my-lg-0 nav-search-form home-search", id: "location-form" do %>
+      <%= text_field_tag :locationsearchnavlg, "", class: "location-search form-control mr-sm-2" %>
+      <%# submit_tag "Search", class: "btn btn-primary btn-primary my-2 my-sm-0", id: "home-search" %>
+    <% end %>
+
+<% content_for(:after_js) do %>
+  <script>
+    // Google Maps Autocomplete
+
+    function onPlaceChanged() {
+      var place = this.getPlace();
+      var listAddress = document.getElementById('locationsearchnavlg');
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      var listAddress = document.getElementById('locationsearchnavlg');
+      if (listAddress) {
+        var autocomplete = new google.maps.places.Autocomplete(listAddress, { types: ['geocode'] });
+        google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
+      }
+    });
+  </script>
+<% end %>

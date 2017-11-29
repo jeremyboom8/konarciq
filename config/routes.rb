@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'contact', to: "pages#contact"
+  get 'guide', to: "pages#guide"
   get 'about', to: "pages#about"
   get 'host', to: 'dashboards#host'
 

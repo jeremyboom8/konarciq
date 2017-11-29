@@ -1,8 +1,9 @@
-<div class="wrapper">
+<div class="wrapper wrapper-rel">
+ <%= link_to 'Back', url_for(:back), class: "back-to" %>
 
   <div class="page-header " style="background-image: url('<%= cl_image_path @listing.photos.first.path %>')">
     <div class="filter"></div>
-    <div class="content-center">
+    <div class="content-center parmesan">
 
       <div class="motto">
         <h1 class="text-center show-title"><%= @listing.title %></h1>
@@ -133,12 +134,12 @@
 
                       <a class="pull-left" href="#">
                         <div class="avatar">
-                          <%= cl_image_tag review.user.photos.first.path, crop: :fill, class: "media-object" %>
+                          <%= cl_image_tag review.user.photos.first.path, crop: :fill, height: 100, width: 100, class: "media-object" %>
                         </div>
                       </a>
 
                       <div class="media-body">
-                        <h5 class="media-heading">Flume</h5>
+                        <h5 class="media-heading"><%= review.user.first_name %></h5>
                         <div class="pull-right">
                           <h6 class="text-muted"> <%= review.created_at.strftime("%b %e %Y") %></h6>
                         </div>
@@ -160,7 +161,7 @@
 
       <% if current_user && !current_user.has_reviewed?(@listing) %>
         <!-- Post a review section -->
-        <div class="section section-gray">
+        <div class="section">
           <div class="container">
             <div class="row">
               <div class="col-md-8 ml-auto mr-auto">
@@ -171,23 +172,22 @@
 
                   <a class="pull-left author" href="#">
                     <div class="avatar">
-                      <%= image_tag "user-jeremy.jpg", class: "media-object", alt: "Rounded Image" %>
+                      <%= cl_image_tag current_user.photos.first.path, crop: :fill, height: 100, width: 100, class: "media-object" %>
                     </div>
                   </a>
 
-                  <%= simple_form_for([ @listing, @review ], class: "media-body") do |form| %>
-                    <%= form.input :content, as: :text, placeholder: 'Your post here...', class: "form-control border-input" %>
+                  <style>
+                    form#new_review.simple_form.new_review {
+                      width: 100%;
+                    }
+                  </style>
+
+                  <%= simple_form_for([ @listing, @review ], class: "media media-post media-body", style: "width: 100%;") do |form| %>
+                    <%= form.input :content, as: :text, placeholder: 'Your post here...', class: "form-control border-input", label: false %>
                     <div class="media-footer">
                       <%= form.button :submit, class: "btn btn-primary btn-wd pull-right" %>
                     </div>
                   <% end %>
-
-                  <div class="media-body">
-                    <textarea class="form-control border-input" placeholder="Your review here..." rows="6"></textarea>
-                    <div class="media-footer">
-                      <a href="#" class="btn btn-primary btn-wd pull-right">Post now</a>
-                    </div>
-                  </div>
 
                 </div>
 

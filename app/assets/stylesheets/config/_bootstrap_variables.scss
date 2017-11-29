@@ -24,16 +24,27 @@
 
 // Override other variables below!
 
-
+$konarciq: #00C175;
 
 // Override primary button with fun bouncy green button
 .btn-primary {
-  background-color: #00C175;
-  border: 1px solid #00C175;
+  background-color: $konarciq;
+  border: 1px solid $konarciq;
   padding: 0.5rem 3rem;
   color: #fff;
+  font-weight: 500;
   box-shadow: 0 6px 32px rgba(0, 0, 0, 0.15);
   transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease, -webkit-transform 300ms cubic-bezier(0.34, 2, 0.6, 1), -webkit-box-shadow 200ms ease;
+}
+
+.btn-primary:active:focus {
+  color: #ffffff;
+  background-color: $konarciq !important;
+  border-color: $konarciq;
+}
+
+.btn-sample:active {
+  background-color: $konarciq !important;
 }
 
 .btn-primary:hover {
@@ -47,7 +58,7 @@
 .btn-edit {
   background-color: transparent;
   border: 3px solid #FFFFFF;
-  padding: 0.5rem 3rem;
+  padding: 0.45rem 3rem;
   color: #fff;
   box-shadow: 0 6px 32px rgba(0, 0, 0, 0.15);
   transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease, -webkit-transform 300ms cubic-bezier(0.34, 2, 0.6, 1), -webkit-box-shadow 200ms ease;
@@ -63,8 +74,8 @@
 
 // Button for availability
 .btn-info {
-  background-color: #00C175;
-  border: 1px solid #00C175;
+  background-color: $konarciq;
+  border: 1px solid $konarciq;
   padding: 0.5rem 3rem;
   color: #fff;
   box-shadow: 0 6px 32px rgba(0, 0, 0, 0.15);

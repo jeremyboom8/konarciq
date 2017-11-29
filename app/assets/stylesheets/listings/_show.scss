@@ -1,13 +1,24 @@
+.back-to {
+  position: absolute;
+  left: 30px;
+  top: 20px;
+  font-size: 50px;
+}
+.back-button {
+  color: white;
+}
+
 .show-title {
-  font-size: 3.6em;
-  font-weight: 300;
+  font-size: 90px;
+  font-weight: 400;
 }
 
 .show-caption {
   font-size: 1.825em;
   line-height: 1.4;
   margin: 0;
-  font-weight: 300;
+  font-weight: 100;
+  letter-spacing: 1px;
 }
 
 .show-p {
@@ -69,6 +80,10 @@
   margin-bottom: 50px;
 }
 
+.parmesan {
+  margin-top: 40px;
+}
+
 .filter {
   transition: all 150ms linear;
 }
@@ -126,7 +141,8 @@ textarea.form-control {
   overflow: hidden;
   position: relative;
   width: 100%;
-  // z-index: 1;
+  margin: -70px auto 0;
+  z-index: 1;
 }
 
 .page-header .content-center {
@@ -148,7 +164,7 @@ textarea.form-control {
 }
 
 .page-header .filter::after {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   content: "";
   display: block;
   height: 100%;
@@ -177,6 +193,7 @@ textarea.form-control {
 
 .media .avatar img {
   width: 100%;
+  height: 100%;
 }
 
 .media .media-heading {
@@ -209,7 +226,7 @@ textarea.form-control {
   width: 20%;
   float: none !important;
   display: block;
-  margin: 0 auto 10px;
+  // margin: 0 auto 10px;
 }
 
 .media-post .media-body {
@@ -229,7 +246,7 @@ textarea.form-control {
 }
 
 .section-chevron {
-  padding: 50px 0px 70px 0px;
+  padding: 70px 0px 70px 0px;
   position: relative;
 }
 
@@ -344,29 +361,7 @@ textarea.form-control {
   border: 0;
 }
 
-@media (max-width: 567px) {
-  .page-header {
-    min-height: 540px;
-  }
-  .show-avatar {
-    width: 150px;
-    border: 2px solid white;
-  }
-  .show-title {
-    font-size: 37px;;
-    font-weight: 300;
-  }
-  .show-caption {
-    font-size: 24px;
-    line-height: 1.4;
-    margin: 0;
-    font-weight: 300;
-  }
-  .show-img-circle {
-    width: 100px;
-    height: 100px;
-  }
-}
+
 
 @media (max-width: 767px) {
   .media p {
@@ -406,6 +401,36 @@ textarea.form-control {
   animation: bounce 2s infinite;
   font-size: 40px;
   margin: -50px auto 0;
+  position: absolute;
+  z-index: 999;
+  opacity: .6;
+  left: 49.5%;
+}
+
+@media (max-width: 567px) {
+  .page-header {
+    min-height: 540px;
+  }
+  .show-avatar {
+    width: 150px;
+    border: 2px solid white;
+  }
+  .show-title {
+    font-size: 37px;;
+  }
+  .show-caption {
+    font-size: 24px;
+  }
+  .show-img-circle {
+    width: 100px;
+    height: 100px;
+  }
+  .bounce {
+    left: 47%;
+  }
+  .parmesan {
+    margin-top: 20px;
+  }
 }
 
 @keyframes bounce {
