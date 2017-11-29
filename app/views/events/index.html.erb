@@ -11,3 +11,25 @@
     <% end %>
   </div>
 </div>
+
+<div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+  <h1 class="form-listing-heading" style="text-align: center;margin-top: 50px;">Available times</h2>
+</div>
+<div class="row coloured-cards">
+
+  <% @events.each do |event| %>
+    <div class="col-xs-12 col-sm-6 col-md-4 card-column">
+      <div class="card-big-shadow">
+        <div class="card card-just-text" data-background="color" data-color="green" data-radius="none">
+          <div class="card-body">
+            <h6 class="card-category">Best cards</h6>
+            <h4 class="card-title"><a href="#paper-kit">Green Card</a></h4>
+            <p class="card-description">What all of these have in common is that they're pulling information out of the app or the service and making it relevant to the moment. </p>
+          </div>
+        </div> <!-- end card -->
+      </div>
+    </div>
+  <% end %>
+
+</div>
+

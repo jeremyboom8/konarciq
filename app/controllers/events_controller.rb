@@ -22,4 +22,8 @@ class EventsController < ApplicationController
   def set_listing
     @listing = Listing.find(params[:listing_id])
   end
+
+  def set_event
+    @event = Event.find(params[:event_id])
+  end
 end

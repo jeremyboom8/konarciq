@@ -11,7 +11,6 @@
 
     <%= form_tag listings_path, method: 'get', class: "form-inline justify-content-center my-2 my-lg-0 nav-search-form home-search", id: "location-form" do %>
       <%= text_field_tag :locationsearchnavlg, "", class: "location-search form-control mr-sm-2" %>
-      <%# submit_tag "Search", class: "btn btn-primary btn-primary my-2 my-sm-0", id: "home-search" %>
     <% end %>
 
 <% content_for(:after_js) do %>
