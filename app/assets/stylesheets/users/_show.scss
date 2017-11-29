@@ -1,0 +1,73 @@
+.profile-page .profile-page-img-circle {
+  padding: 0px;
+  background-color: #FFFFFF;
+  margin-bottom: 10px;
+  padding: 4px;
+  border-radius: 50%!important;
+  max-width: 100%;
+}
+
+.profile-page .page-header {
+  background-color: #B2AFAB;
+  background-position: center center;
+  background-size: cover;
+  min-height: 100vh;
+  max-height: 999px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  z-index: -4;
+}
+
+.profile-page .page-header .filter::after {
+  background-color: rgba(0, 0, 0, 0.5);
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  z-index: -4;
+}
+
+.profile-page .page-header.page-header-xs {
+  min-height: 40vh!important;
+}
+
+.profile-page .profile-content {
+  position: relative;
+}
+
+.profile-page .owner {
+  text-align: center;
+}
+
+.profile-page .owner .avatar {
+  max-width: 180px;
+  margin: -65px auto 0;
+}
+
+.profile-page .owner .name h3 {
+  margin-top: 15px;
+}
+
+@media (max-width: 576px) {
+  .profile-page .owner .avatar {
+    margin: -60px auto 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .profile-page h6 {
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .profile-page .wrapper {
+    transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
+    left: 0;
+    background-color: white;
+  }
+}

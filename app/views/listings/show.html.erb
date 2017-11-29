@@ -9,7 +9,10 @@
       </div>
 
       <div class="motto">
-        <%= cl_image_tag @listing.user.photos.first.path, crop: :fill, width: 300, height: 300, class: "show-img-circle img-responsive text-center media-object", alt: "Rounded Image" %>
+        <%= link_to user_path(@listing.user) do %>
+          <%= cl_image_tag @listing.user.photos.first.path, crop: :fill, width: 300, height: 300, class: "show-img-circle img-responsive text-center media-object", alt: "Rounded Image" %>
+        <% end %>
+
         <h3 class="text-center"><%= @listing.user.first_name %></h3>
         <p></p>
         <% if @listing.user == current_user %>
@@ -33,12 +36,12 @@
   </div>
 
   <div class="arrow bounce">
-    <a class="ion-ios-arrow-down" href="#"></a>
+    <a class="ion-ios-arrow-down" href="#listing-about"></a>
   </div>
 
   <div class="main">
 
-    <div class="section section-chevron">
+    <div class="section section-chevron" id="listing-about">
       <div class="container">
         <div class="row">
           <div class="col-md-8 col-lg-6 offset-md-2 offset-lg-3 text-center spacious">

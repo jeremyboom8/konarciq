@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'about', to: "pages#about"
   get 'host', to: 'dashboards#host'
 
+  resources :users, only: [:show]
+
   resources :listings do
     resources :reviews, only: [:create] # You can use :except or only:
     resources :events, only: [:index, :show, :edit, :new] do

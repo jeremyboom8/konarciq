@@ -1,0 +1,62 @@
+
+
+<div class="wrapper profile-page">
+  <div class="page-header page-header-xs" data-parallax="true" style="background-image: linear-gradient(-160deg, #441a1abd 40%, rgba(98, 74, 3, 0.49) 80%), url('https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1500&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D');">
+  <div class="filter"></div>
+   </div>
+   <div class="section profile-content">
+    <div class="container">
+      <div class="owner">
+        <div class="avatar">
+          <%= cl_image_tag @user.photos.first.path, crop: :fill, width: 300, height: 300, class: "avatar show-img-circle img-responsive text-center media-object profile-page-img-circle", alt: "Rounded Image" %>
+        </div>
+        <div class="name">
+          <h3 class="text-center"><%= @user.first_name %><br /></h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 ml-auto mr-auto text-center">
+          <p>Bio here<%= @user.bio %></p>
+          <br />
+          <btn class="btn-dark-edit"><i class="fa fa-cog"></i> Edit profile</btn>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%#= @user.listings.each do %>
+<%# end %>
+
+<div class="index-content">
+  <div class="row profile-cards">
+
+    <% @user.listings.each do |listing| %>
+
+      <!-- Start of the card -->
+      <div class="col-xs-12 col-md-6 col-xl-3">
+        <div class="card profile-card">
+          <div class="profile-card-cover" style="background-image: url('<%= cl_image_path listing.photos.first.path %>')"></div>
+          <%= cl_image_tag listing.user.photos.first.path, crop: :fill, width: 100, height: 100, class: "profile-card-avatar" %>
+          <div class="profile-card-body">
+
+            <h5 class="small-h5"><strong>NATURE · DENMARK</strong></h5>
+            <h4 class="profile-card-first-name"><%= listing.title %></h4>
+            <% if listing.events.exists? %>
+              <% lowest_priced_event = listing.events.min_by { |h| h.price} %>
+              <h6 class="profile-card-interests" style="padding-bottom: 11px;">Starting at <%= humanized_money_with_symbol(lowest_priced_event.price) %></h6>
+            <% else %>
+              <h6 class="profile-card-interests">No classes atm</h6>
+            <% end %>
+          </div>
+          <div style="@media (max-width: 576px) { display: none; }">
+            <%= link_to "", listing_path(listing), class: "profile-card-link", target: "_blank" %>
+          </div>
+          <div style="@media (min-width: 576px) { display: none; }">
+            <%= link_to "", listing_path(listing), class: "profile-card-link" %>
+          </div>
+        </div>
+      </div>
+      <!-- End of the card -->
+    <% end %>
+  </div>
+</div>
