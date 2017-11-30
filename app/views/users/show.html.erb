@@ -55,6 +55,8 @@
   .section .user-listing-headers {padding:0px,0px,0px,0px;}
 </style>
 
+<% if @user.listings.present? %>
+
 <div class="wrapper profile-page">
   <div class="section user-listing-headers">
 
@@ -67,8 +69,6 @@
 
 <div class="index-content">
   <div class="row profile-cards">
-
-
 
     <% @user.listings.each do |listing| %>
 
@@ -102,3 +102,5 @@
     <% end %>
   </div>
 </div>
+
+<% end %>

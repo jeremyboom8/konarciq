@@ -1,3 +1,15 @@
+// New event page
+.event-all-col {
+  padding: 35px;
+  box-shadow: 0px 9px 32px #00000026;
+}
+
+.event-new-col {
+  padding: 35px;
+  // box-shadow: 0px 9px 32px #00000026;
+}
+
+// Events index
 .coloured-cards {
   margin: 0;
   padding: 15px;
@@ -107,20 +119,26 @@
 
 .coloured-cards .card-big-shadow {
   // max-width: 320px;
-    position: relative;
+  position: relative;
 }
 
 .coloured-cards .card-big-shadow:before {
-    background-image: url(http://static.tumblr.com/i21wc39/coTmrkw40/shadow.png);
-    background-position: center bottom;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    bottom: -12%;
-    content: "";
-    display: block;
-    left: -12%;
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: 0;
+  background-image: url(http://static.tumblr.com/i21wc39/coTmrkw40/shadow.png);
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  bottom: -12%;
+  content: "";
+  display: block;
+  left: -12%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 0;
+}
+
+@media (max-width: 1080px) {
+  .kill-event-section-padding {
+    padding: 0;
+  }
 }

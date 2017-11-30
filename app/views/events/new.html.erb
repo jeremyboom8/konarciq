@@ -1,9 +1,40 @@
-<h1>Events#new</h1>
-<p>Find me in app/views/events/new.html.erb</p>
-Schedule a new event
+<div class="section kill-event-section-padding">
+  <div class="container" style="min-height: 100vh;">
+    <div class="row">
 
-<%= simple_form_for [@listing, @event] do |f| %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.submit "Book now", class: "btn btn-primary" %>
-<% end %>
+      <div class="col-lg-12 col-xl-3 event-new-col" style="margin-bottom: 35px">
+        <h1 style="text-center">New event:</h1>
+        <%= simple_form_for [@listing, @event] do |f| %>
+          <%= f.input :start_date %>
+          <%= f.input :end_date %>
+          <%= f.submit "Create event", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+
+      <div class="col-lg-12 col-xl-8 ml-auto mr-auto event-all-col">
+        <h1 style="text-center">Scheduled events</h1>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Event name</th>
+                <th>Start date</th>
+                <th>End date</th>
+              </tr>
+            </thead>
+            <% @listing.events.each do |event| %>
+            <tbody>
+              <tr>
+                <td><%= @listing.title %></td>
+                <td><%= event.start_date.strftime("%b %e %Y") %></td>
+                <td><%= event.end_date.strftime("%b %e %Y") %></td>
+              </tr>
+            </tbody>
+            <% end %>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
