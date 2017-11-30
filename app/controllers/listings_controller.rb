@@ -39,8 +39,8 @@ class ListingsController < ApplicationController
  def create
     @listing = Listing.new(listing_params)
     @listing.user = current_user
-    @youtube_id = params[:youtube_url].match(/^(http(s)?:\/\/)?((w){3}.)?youtu(be|.be)?(\.com)?\/.+/)
-      raise
+    @youtube_id = params[:youtube_id].match(/^(?:https?:\/\/)?(?:www\.)?youtu(?:\.be|be\.com)\/(?:watch\?v=)?([\w-]{10,})/)
+    raise
     if @listing.save
       redirect_to listing_path(@listing)
     else
