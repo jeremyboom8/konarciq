@@ -17,14 +17,14 @@
 
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-          <%= link_to "#", class: "dropdown-item" do %>
-            <i class="ion ion-person"></i> <%= t(".user", default: " Profile") %>
+          <%= link_to user_path(current_user), class: "dropdown-item" do %>
+            <i class="ion ion-person"></i> Profile
           <% end %>
 
           <div class="dropdown-divider"></div>
 
           <%= link_to destroy_user_session_path, class: "dropdown-item", method: :delete do %>
-            <i class="ion ion-log-out"></i>  <%= t(".sign_out", default: " Log out") %>
+            <i class="ion ion-log-out"></i>&nbsp;Log out
           <% end %>
 
         </div>

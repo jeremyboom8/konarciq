@@ -248,6 +248,9 @@ h1 .display-3 {
   .expose .card.card-plain {
     text-align: center;
   }
+  .expose .card.card-plain .card-body {
+    margin-top: 0;
+  }
   .expose h6 {
       font-size: 1em;
   }

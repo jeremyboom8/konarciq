@@ -68,12 +68,18 @@
 <div class="index-content">
   <div class="row profile-cards">
 
+
+
     <% @user.listings.each do |listing| %>
 
       <!-- Start of the card -->
       <div class="col-xs-12 col-md-6 col-xl-3">
         <div class="card profile-card">
-          <div class="profile-card-cover" style="background-image: url('<%= cl_image_path listing.photos.first.path %>')"></div>
+          <% if listing.photos.first.present? %>
+            <div class="profile-card-cover" style="background-image: url('<%= cl_image_path listing.photos.first.path %>')"></div>
+          <% else %>
+            <div class="profile-card-cover" style="background-image: url('<%= cl_image_path "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1500&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D" %>')"></div>
+          <% end %>
           <%= cl_image_tag listing.user.photos.first.path, crop: :fill, width: 100, height: 100, class: "profile-card-avatar" %>
           <div class="profile-card-body">
 
@@ -86,9 +92,7 @@
               <h6 class="profile-card-interests">No classes atm</h6>
             <% end %>
           </div>
-          <div style="@media (max-width: 576px) { display: none; }">
-            <%= link_to "", listing_path(listing), class: "profile-card-link", target: "_blank" %>
-          </div>
+
           <div style="@media (min-width: 576px) { display: none; }">
             <%= link_to "", listing_path(listing), class: "profile-card-link" %>
           </div>

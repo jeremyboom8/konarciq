@@ -62,16 +62,18 @@
 .coloured-cards .card h6 {
   font-size: 12px;
   margin: 0;
+  margin-top: 5px;
 }
 
 .coloured-cards .card.card-just-text .card-body {
-  padding: 50px 65px;
+  // padding: 50px 65px;
   text-align: center;
 }
 
 .coloured-cards .card[data-background="color"] .card-description,
 .card[data-color] .card-description {
   color: rgba(255, 255, 255, 0.7);
+  margin-top: 0;
 }
 
 .coloured-cards .card[data-background="color"] .card-title,
@@ -83,6 +85,8 @@
 .card[data-color] .card-body,
 .card[data-color] a:not(.btn) {
   color: #FFFFFF!important;
+  margin-top: 10px;
+  margin-bottom: 5px;
 }
 
 .coloured-cards .card[data-background="color"] a:not(.btn):hover,
@@ -92,32 +96,17 @@
   color: #FFFFFF;
 }
 
-.coloured-cards .card[data-color="blue"] {
-  background: #fff;
+
+.coloured-cards .card[data-color="green"] {
+  background: #00C175;
 }
 
 .coloured-cards .card[data-color="green"] {
-  background: #86d9ab;
-}
-
-.coloured-cards .card[data-color="yellow"] {
-  background: #fcd27b;
-}
-
-.coloured-cards .card[data-color="brown"] {
-  background: #e4c4a1;
-}
-
-.coloured-cards .card[data-color="purple"] {
-  background: #cc90cc;
-}
-
-.coloured-cards .card[data-color="orange"] {
-  background: #f7765f;
+  background: #3BDD97;
 }
 
 .coloured-cards .card-big-shadow {
-  max-width: 320px;
+  // max-width: 320px;
     position: relative;
 }
 
