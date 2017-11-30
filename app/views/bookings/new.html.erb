@@ -1,4 +1,4 @@
-<%= simple_form_for [@listing, @event, @booking] do |f| %>
+<%= form_tag [@listing, @event, @booking] do %>
   <div class="section section-gray">
     <div class="container" style="height: 100vh;">
       <div class="row">
@@ -6,20 +6,74 @@
         <div class="col-md-8 ml-auto mr-auto">
 
           <h1 class="text-center show-title">Finish Purchase</h1>
-          <p style="margin-bottom: 5px;">Add message <%= @listing.user.first_name %>? (Optional)</p>
 
-          <div class="media media-post" style="margin-top: 0px;">
-            <div class="media-body">
+          <article>
+            <label class="amount">
+              <span>Amount: <%= humanized_money_with_symbol(@booking.amount) %></span>
+            </label>
+          </article>
+          <style>
+            .stripe-button-el {
+              all: unset;
+            }
+            .stripe-button-el span {
+              all: unset;
+            }
+            .stripe-button-el span:focus {
+              all: unset;
+            }
+            .stripe-button-el:hover {
+              color: #ffffff;
+              background-color: $konarciq !important;
+              border-color: $konarciq;
+            }
+            .stripe-button-el {
+              background-color: #00C175;
+              border: 1px solid #00C175;
+              padding: 0.5rem 3rem;
+              color: #fff;
+              font-weight: 500;
+              -webkit-box-shadow: 0 6px 32px rgba(0, 0, 0, 0.15);
+              box-shadow: 0 6px 32px rgba(0, 0, 0, 0.15);
+              transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease, -webkit-transform 300ms cubic-bezier(0.34, 2, 0.6, 1), -webkit-box-shadow 200ms ease;
+              float: right;
+              text-align: center !important;
+              font-size: 1.25rem;
+              line-height: 1.5;
+              border-radius: 0.3rem;
+              white-space: nowrap;
+              vertical-align: middle;
+              user-select: none;
+              -webkit-appearance: button;
+              text-transform: none;
+              overflow: visible;
+              margin: 0;
+              font-family: inherit;
+              touch-action: manipulation;
+              box-sizing: border-box;
+              align-items: flex-start;
+              cursor: default;
+              letter-spacing: normal;
+              word-spacing: normal;
+              text-indent: 0px;
+              text-shadow: none;
+              -webkit-writing-mode: horizontal-tb;
+              -webkit-tap-highlight-color:
+            }
+            .stripe-button-el:hover {
 
-              <%= f.input :customer_message, class: "form-control border-input", placeholder: "Your message here...", maxlength: "300", rows: "6", label: false  %>
-              <div class="media-footer">
-              <%= button_tag type: 'Continue to payment', class: "btn btn-primary btn-lg text-center pull-right" do %>
-                  Pay now&nbsp;&nbsp;<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-              <% end %>
-              </div>
-            </div>
-          </div>
+            }
+          </style>
 
+
+          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-name="My Event"
+            data-email="<%= current_user.email %>"
+            data-description="Event <%= @booking.event_sku %>"
+            data-amount="<%= @booking.amount_cents %>"
+            data-currency="<%= @booking.amount.currency %>">
+          </script>
         </div>
       </div>
     </div>
@@ -27,21 +81,6 @@
 <% end %>
 
 
-<h1>Purchase of Event <%= @booking.event_sku %></h1>
-<%= form_tag [@listing, @event, @booking] do %>
-  <article>
-    <label class="amount">
-      <span>Amount: <%= humanized_money_with_symbol(@booking.amount) %></span>
-    </label>
-  </article>
-
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-    data-name="My Event"
-    data-email="<%= current_user.email %>"
-    data-description="Event <%= @booking.event_sku %>"
-    data-amount="<%= @booking.amount_cents %>"
-    data-currency="<%= @booking.amount.currency %>">
-  </script>
+<%= button_tag type: 'Continue to payment', class: "btn btn-primary btn-lg text-center pull-right" do %>
+  Pay now&nbsp;&nbsp;<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
 <% end %>
-

@@ -44,6 +44,7 @@ urls = ['http://cdn.cnn.com/cnnnext/dam/assets/160415122850-womens-sacred-expres
 yoga = Listing.new(title: "Yoga Retreat", caption: "Best yoga retreat (caption)",description: "Amazing yoga retreat", address: "Lund, Sweden")
 yoga.user = joanna
 yoga.photo_urls = urls
+yoga.youtube_id = "umA_M5y-G1U"
 yoga.save
 puts "Listing created"
 
@@ -53,6 +54,7 @@ urls = ["https://www.kamalaya.com/fileadmin/user_upload/___Group-Meditation-retr
 meditation = Listing.new(title: "Meditation Retreat", caption: "Best meditation retreat (caption)",description: "Amazing meditation retreat", address: "Copenhagen, Denmark")
 meditation.user = jeremy
 meditation.photo_urls = urls
+meditation.youtube_id = "sJH6_ZbgeWQ"
 meditation.save
 puts "Listing created"
 
@@ -62,6 +64,7 @@ urls = ["http://www.finland-product-manual.com/uploads/8/0/7/8/80787950/_3464881
 wellbeing = Listing.new(title: "Well-being Magic", caption: "Best well being journey (caption)",description: "Amazing well-being journey", address: "Helsingborg, Sweden")
 wellbeing.user = angela
 wellbeing.photo_urls = urls
+wellbeing.youtube_id = "o8bxrnliSts"
 wellbeing.save
 puts "Listing created"
 
