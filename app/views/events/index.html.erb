@@ -1,23 +1,26 @@
-<div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+<div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2 pesto">
   <h1 class="form-listing-heading" style="text-align: center;margin-top: 50px;">Available times</h2>
-</div>
-<div class="row coloured-cards">
+  <% unless @events.present? %>
+  <h3 style="text-align: center;font-weight:300;">Nawww 😞 Currently no events</h3>
+  <% else %>
+  <div class="row coloured-cards">
 
-  <% @events.each do |event| %>
-    <div class="col-xs-12 col-sm-6 col-md-4 card-column">
-      <div class="card-big-shadow">
-        <%= link_to new_listing_event_booking_path(@listing, event, @booking) do %>
-          <div class="card card-just-text" data-background="color" data-color="green" data-radius="none">
-            <div class="card-body">
-              <h4 class="card-title"><%= event.start_date.strftime("%b %e %Y") %></h4>
-              <h6 class="card-category">Ends: <%= event.end_date.strftime("%b %e %Y") %></h6>
-              <h4 class="card-title">Spaces: <%= event.max_capacity %> left</h4>
-              <p class="card-description"><%= humanized_money_with_symbol(event.price) %></p>
-            </div>
-          </div> <!-- end card -->
-        <% end %>
+    <% @events.each do |event| %>
+      <div class="col-xs-12 col-sm-6 col-md-4 card-column">
+        <div class="card-big-shadow">
+          <%= link_to new_listing_event_booking_path(@listing, event, @booking) do %>
+            <div class="card card-just-text" data-background="color" data-color="green" data-radius="none">
+              <div class="card-body">
+                <h4 class="card-title"><%= event.start_date.strftime("%b %e %Y") %></h4>
+                <h6 class="card-category">Ends: <%= event.end_date.strftime("%b %e %Y") %></h6>
+                <h4 class="card-title">Spaces: <%= event.max_capacity %> left</h4>
+                <p class="card-description"><%= humanized_money_with_symbol(event.price) %></p>
+              </div>
+            </div> <!-- end card -->
+          <% end %>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
 
-</div>
+  </div>
+<% end %>

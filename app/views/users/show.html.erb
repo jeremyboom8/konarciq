@@ -19,33 +19,36 @@
         </div>
       </div>
 
-      <!-- TODO if current user - edit -->
-      <div class="row ravioli">
-        <div class="col-md-6 ml-auto mr-auto">
-          <form class="settings-form">
-            <div class="row">
-              <div class="col-md-6 col-sm-6">
-                <div class="form-group">
-                  <input type="text" class="form-control border-input" placeholder="First Name">
+      <% if current_user == @user %>
+        <!-- TODO if current user - edit -->
+        <div class="row ravioli">
+          <div class="col-md-6 ml-auto mr-auto">
+            <form class="settings-form">
+              <div class="row">
+                <div class="col-md-6 col-sm-6">
+                  <div class="form-group">
+                    <input type="text" class="form-control border-input" placeholder="First Name">
+                  </div>
+                </div>
+
+                <div class="col-md-6 col-sm-6">
+                  <div class="form-group">
+                    <input type="text" class="form-control border-input" placeholder="Last Name">
+                  </div>
                 </div>
               </div>
-
-              <div class="col-md-6 col-sm-6">
-                <div class="form-group">
-                  <input type="text" class="form-control border-input" placeholder="Last Name">
-                </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Email address">
               </div>
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Email address">
-            </div>
-            <div class="form-group">
-              <textarea class="form-control textarea-limited" placeholder="Your bio is limited to 150 characters." rows="3", maxlength="150" ></textarea>
-            </div>
-          </form>
+              <div class="form-group">
+                <textarea class="form-control textarea-limited" placeholder="Your bio is limited to 150 characters." rows="3", maxlength="150" ></textarea>
+              </div>
+            </form>
 
+          </div>
         </div>
-      </div>
+      <% end %>
+
     </div>
   </div>
 </div>
@@ -54,6 +57,8 @@
   .user-listing-headers {padding-bottom:0px;}
   .section .user-listing-headers {padding:0px,0px,0px,0px;}
 </style>
+
+<% if @user.listings.present? %>
 
 <div class="wrapper profile-page">
   <div class="section user-listing-headers">
@@ -67,8 +72,6 @@
 
 <div class="index-content">
   <div class="row profile-cards">
-
-
 
     <% @user.listings.each do |listing| %>
 
@@ -102,3 +105,5 @@
     <% end %>
   </div>
 </div>
+
+<% end %>

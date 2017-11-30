@@ -34,9 +34,9 @@ h1 .display-3 {
   color: white;
   margin-bottom: 30px;
   font-weight: 300;
-  font-size: 35px;
+  font-size: 40px;
   letter-spacing: 0.01em;
-  text-shadow: 0px 0px 32px #303030de;
+  text-shadow: 0px 0px 32px #11111170;
 }
 
 .home-search .btn {
@@ -57,11 +57,8 @@ h1 .display-3 {
 .jumbotron h1 {
   color: white;
   text-shadow: 0px 0px 32px #30303082;
-}
-
-.jumbotron h1 {
   font-weight: 500;
-  font-size: 70px;
+  font-size: 90px;
 }
 
 #home-search {
@@ -95,7 +92,7 @@ h1 .display-3 {
     border-radius: 0 4px 4px 0px;
   }
   .jumbotron h1 {
-    font-size: 40px;
+    font-size: 46px;
     font-weight: 400;
   }
 }
@@ -266,11 +263,73 @@ h1 .display-3 {
   }
   .jumbotron .pizza {
     margin-top: 60px;
-}
+  }
 }
 
 @media (max-width: 409px) {
   .jumbotron .pizza {
     margin-top: 40px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+// TODO Video background: get html from http://dev2.slicejack.com/fullscreen-video-demo/index.html
+
+/*! CSS Used from: http://dev2.slicejack.com/fullscreen-video-demo/css/style.css */
+
+.content {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 960px;
+  padding: 0 15px;
+}
+
+.fullscreen-bg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -100;
+}
+
+.fullscreen-bg__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  .fullscreen-bg__video {
+      height: 300%;
+      top: -100%;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  .fullscreen-bg__video {
+    width: 300%;
+    left: -100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .fullscreen-bg {
+    background: url(http://dev2.slicejack.com/fullscreen-video-demo/img/videoframe.jpg) center center / cover no-repeat;
+  }
+  .fullscreen-bg__video {
+    display: none;
   }
 }
