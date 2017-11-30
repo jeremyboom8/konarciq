@@ -1,5 +1,9 @@
 <div class="wrapper wrapper-rel">
-  <div class="page-header " style="background-image: url('<%= cl_image_path @listing.photos.first.path %>')">
+  <% if @listing.photos.first.present? %>
+    <div class="page-header " style="background-image: url('<%= cl_image_path @listing.photos.first.path %>')">
+  <% else %>
+    <div class="page-header " style="background-image: url('https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1500&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D')">
+  <% end %>
     <div class="filter"></div>
     <div class="content-center parmesan">
 

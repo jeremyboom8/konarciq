@@ -1,17 +1,3 @@
-<h1 class="text-center">Upcoming</h1>
-<div class="container">
-  <div class="row">
-    <% @events.each do |event| %>
-      <%= link_to new_listing_event_booking_path(@listing, event, @booking), class: "btn btn-info" do %>
-          <h3>Start date: <%= event.start_date.strftime("%b %e %Y") %></h3>
-          <h3>End date: <%= event.end_date.strftime("%b %e %Y") %></h3>
-          <h3>Spaces left: <%= event.max_capacity %></h3>
-          <p><%= humanized_money_with_symbol(event.price) %></p>
-      <% end %>
-    <% end %>
-  </div>
-</div>
-
 <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
   <h1 class="form-listing-heading" style="text-align: center;margin-top: 50px;">Available times</h2>
 </div>
@@ -20,16 +6,18 @@
   <% @events.each do |event| %>
     <div class="col-xs-12 col-sm-6 col-md-4 card-column">
       <div class="card-big-shadow">
-        <div class="card card-just-text" data-background="color" data-color="green" data-radius="none">
-          <div class="card-body">
-            <h6 class="card-category">Best cards</h6>
-            <h4 class="card-title"><a href="#paper-kit">Green Card</a></h4>
-            <p class="card-description">What all of these have in common is that they're pulling information out of the app or the service and making it relevant to the moment. </p>
-          </div>
-        </div> <!-- end card -->
+        <%= link_to new_listing_event_booking_path(@listing, event, @booking) do %>
+          <div class="card card-just-text" data-background="color" data-color="green" data-radius="none">
+            <div class="card-body">
+              <h4 class="card-title"><%= event.start_date.strftime("%b %e %Y") %></h4>
+              <h6 class="card-category">Ends: <%= event.end_date.strftime("%b %e %Y") %></h6>
+              <h4 class="card-title">Spaces: <%= event.max_capacity %> left</h4>
+              <p class="card-description"><%= humanized_money_with_symbol(event.price) %></p>
+            </div>
+          </div> <!-- end card -->
+        <% end %>
       </div>
     </div>
   <% end %>
 
 </div>
-
