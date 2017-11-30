@@ -10,17 +10,18 @@ class ListingsController < ApplicationController
       @markers = Gmaps4rails.build_markers(@listings) do |listing, marker|
         marker.lat listing.latitude
         marker.lng listing.longitude
-        marker.infowindow "<div>#{listing.user.photos.first.path}</div>"
+        marker.infowindow render_to_string(partial: "/listings/map_box", locals: { listing: listing })
+
         # Get the marker right https://github.com/lewagon/google-maps-markers-static/blob/gh-pages/index.html
-        # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
       end
     else
-      @listings = Listing.all
+      # Only builds the markers that have a lon and lat
+      @listings = Listing.where.not(latitude: nil, longitude: nil)
 
       @markers = Gmaps4rails.build_markers(@listings) do |listing, marker|
         marker.lat listing.latitude
         marker.lng listing.longitude
-        # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+        marker.infowindow render_to_string(partial: "/listings/map_box", locals: { listing: listing })
       end
     end
   end

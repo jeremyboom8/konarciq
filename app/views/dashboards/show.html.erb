@@ -1,3 +1,15 @@
+
+<% @listings.events.each do |listing| %>
+<%= listing.title %>
+<%= listing.status %>
+<%= listing. %>
+<% end %>
+
+
+
+
+
+
 <div class="container">
 
   <!-- pe render('shared/profile') -->
@@ -11,7 +23,7 @@
     <% @listings.each do |listing| %>
       <div class="message">
         <div class="image-wrapper">
-          <%= cl_image_tag listing.photo.path, class: "avatar-md", crop: :thumb %>
+          <%= cl_image_tag listing.user.photos.first.path, class: "avatar-md", crop: :thumb %>
         </div>
         <div class="message-name">
           <h3 style="color: green; font-weight: bold">Online</h3>

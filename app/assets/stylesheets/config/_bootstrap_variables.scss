@@ -96,6 +96,22 @@ $konarciq: #00C175;
   transform: scale(1.03, 1.03);
 }
 
+// Google maps button
+.btn-google {
+  background-color: $konarciq;
+  border: 1px solid $konarciq;
+  padding: 0.5rem 3rem;
+  color: #fff;
+  font-weight: 500;
+  box-shadow: 0 6px 32px rgba(0, 0, 0, 0.15);
+  display: block;
+  vertical-align: middle;
+}
+.btn-google:hover {
+  background-color: #3BDD97;
+  color: #fff;
+}
+
 // Red button to delete stuff
 .btn-delete {
   background-color: $red;
