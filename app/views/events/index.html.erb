@@ -1,11 +1,8 @@
-<div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+<div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2 pesto">
   <h1 class="form-listing-heading" style="text-align: center;margin-top: 50px;">Available times</h2>
-</div>
-<% unless @events.present? %>
-  <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-    <h3 style="text-align: center;font-weight:300;">Nawww 😞 Currently no events</h3>
-  </div>
-<% else %>
+  <% unless @events.present? %>
+  <h3 style="text-align: center;font-weight:300;">Nawww 😞 Currently no events</h3>
+  <% else %>
   <div class="row coloured-cards">
 
     <% @events.each do |event| %>

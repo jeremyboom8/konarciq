@@ -114,11 +114,13 @@ $konarciq: #00C175;
 }
 
 .btn-delete:hover {
+  color: #fff;
   border: 1px solid $red;
   background-color: $red;
   box-shadow: 0 13px 42px rgba(0, 0, 0, 0.25);
   transform: scale(1.03, 1.03);
 }
+
 // Button for availability
 .btn-info {
   background-color: $konarciq;

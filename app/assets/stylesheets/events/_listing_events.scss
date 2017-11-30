@@ -118,7 +118,6 @@
 }
 
 .coloured-cards .card-big-shadow {
-  // max-width: 320px;
   position: relative;
 }
 
@@ -135,6 +134,12 @@
   right: 0;
   top: 0;
   z-index: 0;
+}
+
+@media (max-width: 575px) {
+  .pesto h3 {
+    font-size: 24px;
+  }
 }
 
 @media (max-width: 1080px) {
