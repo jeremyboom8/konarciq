@@ -3,8 +3,8 @@ class DashboardsController < ApplicationController
 
   def show
     @listings = current_user.listings
-    @bookings = current_user.bookings
-    @events = current_user.events
+    @bookings = current_user.listings.events.bookings
+    @events = current_user.listings.events
   end
 
 end

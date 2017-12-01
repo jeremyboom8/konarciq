@@ -1,0 +1,30 @@
+.guide-col-background {
+  height: 600px;
+  width: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-color: #eee;
+}
+
+.guide-col {
+  margin: 200px 0 10px 20px;
+}
+
+.container-skinny {
+  max-width: 3180px !important;
+}
+.guide .description {
+  margin-bottom: 20px;
+}
+
+.guide-h2 {
+  // font-weight: 600;
+}
+
+@media (max-width: 576px) {
+  .guide-col {
+    margin: 40px 10px 40px 10px;
+  }
+}
