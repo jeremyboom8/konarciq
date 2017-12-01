@@ -14,7 +14,6 @@
               <% end %>
               <%= cl_image_tag listing.user.photos.first.path, crop: :fill, width: 100, height: 100, class: "profile-card-avatar" %>
               <div class="profile-card-body">
-
                 <h5 class="small-h5"><i class="ion ion-location"></i><strong> DENMARK · NATURE</strong></h5>
                 <h4 class="profile-card-first-name"><%= listing.title %></h4>
                 <% if listing.events.exists? %>

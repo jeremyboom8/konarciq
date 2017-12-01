@@ -11,8 +11,6 @@ class ListingsController < ApplicationController
         marker.lat listing.latitude
         marker.lng listing.longitude
         marker.infowindow render_to_string(partial: "/listings/map_box", locals: { listing: listing })
-
-        # Get the marker right https://github.com/lewagon/google-maps-markers-static/blob/gh-pages/index.html
       end
     else
       # Only builds the markers that have a lon and lat
@@ -40,7 +38,7 @@ class ListingsController < ApplicationController
  def create
     @listing = Listing.new(listing_params)
     @listing.user = current_user
-    @youtube_id = params[:listing][:youtube_id].match(/^(?:https?:\/\/)?(?:www\.)?youtu(?:\.be|be\.com)\/(?:watch\?v=)?([\w-]{10,})/)[1]
+    @listing.youtube_id = params[:listing][:youtube_id].match(/(?:youtube(?:-nocookie)?\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/)[1]
     if @listing.save
       redirect_to listing_path(@listing)
     else

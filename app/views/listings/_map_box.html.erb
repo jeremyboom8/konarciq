@@ -1,7 +1,8 @@
 <div class="map_box">
-  <p><img src='https://res.cloudinary.com/wagon/image/upload/c_fill,h_200/#{listing.photos.first.path}' height='200'></p>
+  <!-- <p><img src='https://res.cloudinary.com/wagon/image/upload/c_fill,h_200/#{listing.photos.first.path}' height='200'></p> -->
   <h3 class="text-center"><%= listing.title %></h3>
   <p class="text-center"><%= listing.address %></p>
   <%= link_to "View", listing_path(listing), target: :blank, class: "btn btn-google" %>
 </div>
 
+<%#= image_tag("https://res.cloudinary.com/wagon/image/upload/c_fill,h_200/#{@listing.photos.first.path}") %>

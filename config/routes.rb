@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get 'profiles/:id', to: 'users#show', as: 'user'
 
+  resources :dashboards, only: [:show]
+
 
   resources :listings do
     resources :reviews, only: [:create] # You can use :except or only:
