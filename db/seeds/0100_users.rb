@@ -22,6 +22,14 @@ puts "Creating users"
   password: "123456"
 )
 
+@ashlee = User.create(
+  first_name: "Ashlee",
+  last_name: "Stephenson",
+  photo_urls: ["https://avatars2.githubusercontent.com/u/26306907?s=400&v=4"],
+  email: "ashleeste@gmail.com",
+  password: "123456"
+)
+
 @jeremy  = User.create(
   first_name: "Jeremy",
   last_name: "Boom",

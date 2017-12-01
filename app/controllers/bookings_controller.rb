@@ -32,7 +32,7 @@ class BookingsController < ApplicationController
 
       if @booking.save
         flash[:notice] = "Your booking was paid for successfully"
-        redirect_to listing_event_booking_path(@booking.event.listing, @booking.event, @booking)
+        redirect_to root_path(@booking.event.listing, @booking.event, @booking)
       else
         redirect_to new_listing_event_booking_payment_path(@booking)
       end
