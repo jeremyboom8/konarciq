@@ -3,36 +3,34 @@
 
       <% @listings.each do |listing| %>
 
-        <% 3.times do %>
-          <!-- Start of the card -->
-          <div class="col-xs-12 col-md-6 col-xl-3">
-            <div class="card profile-card">
-              <% if listing.photos.first.present? %>
-                <div class="profile-card-cover" style="background-image: url('<%= cl_image_path listing.photos.first.path %>')"></div>
+        <!-- Start of the card -->
+        <div class="col-xs-12 col-md-6 col-xl-3">
+          <div class="card profile-card">
+            <% if listing.photos.first.present? %>
+              <div class="profile-card-cover" style="background-image: url('<%= cl_image_path listing.photos.first.path %>')"></div>
+            <% else %>
+              <div class="profile-card-cover" style="background-image: url('<%= cl_image_path "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1500&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D" %>')"></div>
+            <% end %>
+            <%= cl_image_tag listing.user.photos.first.path, crop: :fill, width: 100, height: 100, class: "profile-card-avatar" %>
+            <div class="profile-card-body">
+              <h5 class="small-h5"><i class="ion ion-location"></i><strong> DENMARK · NATURE</strong></h5>
+              <h4 class="profile-card-first-name"><%= listing.title %></h4>
+              <% if listing.events.exists? %>
+                <% lowest_priced_event = listing.events.min_by { |h| h.price} %>
+                <h6 class="profile-card-interests" style="padding-bottom: 11px;">Starting at <%= humanized_money_with_symbol(lowest_priced_event.price) %></h6>
               <% else %>
-                <div class="profile-card-cover" style="background-image: url('<%= cl_image_path "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1500&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D" %>')"></div>
+                <h6 class="profile-card-interests">No classes atm</h6>
               <% end %>
-              <%= cl_image_tag listing.user.photos.first.path, crop: :fill, width: 100, height: 100, class: "profile-card-avatar" %>
-              <div class="profile-card-body">
-                <h5 class="small-h5"><i class="ion ion-location"></i><strong> DENMARK · NATURE</strong></h5>
-                <h4 class="profile-card-first-name"><%= listing.title %></h4>
-                <% if listing.events.exists? %>
-                  <% lowest_priced_event = listing.events.min_by { |h| h.price} %>
-                  <h6 class="profile-card-interests" style="padding-bottom: 11px;">Starting at <%= humanized_money_with_symbol(lowest_priced_event.price) %></h6>
-                <% else %>
-                  <h6 class="profile-card-interests">No classes atm</h6>
-                <% end %>
-              </div>
-              <div style="@media (max-width: 576px) { display: none; }">
-                <%= link_to "", listing_path(listing), class: "profile-card-link", target: "_blank" %>
-              </div>
-              <div style="@media (min-width: 576px) { display: none; }">
-                <%= link_to "", listing_path(listing), class: "profile-card-link" %>
-              </div>
+            </div>
+            <div style="@media (max-width: 576px) { display: none; }">
+              <%= link_to "", listing_path(listing), class: "profile-card-link", target: "_blank" %>
+            </div>
+            <div style="@media (min-width: 576px) { display: none; }">
+              <%= link_to "", listing_path(listing), class: "profile-card-link" %>
             </div>
           </div>
-          <!-- End of the card -->
-        <% end %>
+        </div>
+        <!-- End of the card -->
 
       <% end %>
 
