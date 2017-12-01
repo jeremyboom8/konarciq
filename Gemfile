@@ -18,6 +18,8 @@ source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
 end
 
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+
 # TODO: Drag n drop - Image uploading (https://www.youtube.com/watch?v=ic4MeDEfT08)
 # gem 'paperclip'
 # gem 'dropzonejs-rails'
