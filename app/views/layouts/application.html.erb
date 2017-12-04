@@ -6,14 +6,29 @@
     <!-- TODO Add favicon, already in images folder -->
     <title>Konarciq</title>
 
+    <meta property="og:title" content="Konarciq" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="Konarciq.herokuapp.com" />
+    <meta property="og:image" content="bg-header.png" />
+    <meta property="og:description" content="Eco friendly adventures" />
+    <meta property="og:site_name" content="Konarciq" />
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="Konarciq"/>
+    <meta name="twitter:title" content="Konarciq"/>
+    <meta name="twitter:description" content="Eco friendly adventures"/>
+    <meta name="twitter:creator" content="@jeremyboom8"/>
+    <meta name="twitter:image:src" content="bg-header.png"/>
+
     <!-- TODO - Follow this: https://www.lewagon.com/blog/setup-meta-tags-rails -->
 
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.default.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css"> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.default.min.css"> -->
 
   </head>
   <body>
@@ -34,7 +49,7 @@
     <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" %>
 
     <!-- Owl Caroursel 2 JS files -->
-    <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js" %>
+    <%#= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js" %>
 
     <%= javascript_include_tag "application" %>
 

@@ -1,5 +1,4 @@
-// Specific CSS for your home-page
-.jumbotron {
+.jumbotron-video {
   padding-top: 10rem;
   padding-bottom: 10rem;
   margin-bottom: 0;
@@ -11,9 +10,35 @@
   width: 100%;
   border-radius: 0px;
   margin: -70px auto 0;
+  overflow: hidden;
 }
 
-.jumbotron .pizza {
+.video-home {
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -2;
+  opacity: 2;
+}
+
+.video-home-overlay {
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top:0;
+  left:0;
+  background: #000;
+  opacity: 0.45;
+}
+
+
+// Specific CSS for your home-page
+
+.jumbotron-video .pizza {
   margin-top: 80px;
 }
 
@@ -43,18 +68,18 @@ h1 .display-3 {
   border-radius: 0px 5px 5px 0px;
 }
 
-.jumbotron-heading {
+.jumbotron-video-heading {
   font-weight: 300;
 }
 
-.jumbotron .container {
+.jumbotron-video .container {
   z-index: 1;
   max-width: 40rem;
   // padding-right: 10px;
   // padding-left: 10px;
 }
 
-.jumbotron h1 {
+.jumbotron-video h1 {
   color: white;
   text-shadow: 0px 0px 32px #30303082;
   font-weight: 500;
@@ -66,10 +91,6 @@ h1 .display-3 {
 #home-search {
   padding: 0.67rem 2rem;
   font-size: 24px;
-}
-
-.container-jumbotron {
-  margin: 70px auto;
 }
 
 .details h2 {
@@ -86,21 +107,21 @@ h1 .display-3 {
     width: 100%;
     border-radius: 3px 3px 3px 3px;
   }
-  .jumbotron {
+  .jumbotron-video {
     padding-top: 5rem;
     padding-bottom: 5rem;
   }
   .my-sm-0 {
     border-radius: 0 4px 4px 0px;
   }
-  .jumbotron h1 {
+  .jumbotron-video h1 {
     font-size: 46px;
-    font-weight: 400;
+    font-weight: 500;
   }
 }
 
 @media (max-width: 623px) {
-  .jumbotron-heading {
+  .jumbotron-video-heading {
     font-size: 4.0rem;
   }
 }
@@ -260,16 +281,16 @@ h1 .display-3 {
     margin-bottom: 15px;
     font-size: 32px;
   }
-  .jumbotron {
+  .jumbotron-video {
     height: 500px;
   }
-  .jumbotron .pizza {
+  .jumbotron-video .pizza {
     margin-top: 60px;
   }
 }
 
 @media (max-width: 409px) {
-  .jumbotron .pizza {
+  .jumbotron-video .pizza {
     margin-top: 40px;
   }
 }
@@ -284,54 +305,54 @@ h1 .display-3 {
 
 
 
-// TODO Video background: get html from http://dev2.slicejack.com/fullscreen-video-demo/index.html
+// // TODO Video background: get html from http://dev2.slicejack.com/fullscreen-video-demo/index.html
 
-/*! CSS Used from: http://dev2.slicejack.com/fullscreen-video-demo/css/style.css */
+// /*! CSS Used from: http://dev2.slicejack.com/fullscreen-video-demo/css/style.css */
 
-.content {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 960px;
-  padding: 0 15px;
-}
+// .content {
+//   margin: 0 auto;
+//   width: 100%;
+//   max-width: 960px;
+//   padding: 0 15px;
+// }
 
-.fullscreen-bg {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  overflow: hidden;
-  z-index: -100;
-}
+// .fullscreen-bg {
+//   position: fixed;
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   left: 0;
+//   overflow: hidden;
+//   z-index: -100;
+// }
 
-.fullscreen-bg__video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
+// .fullscreen-bg__video {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+// }
 
-@media (min-aspect-ratio: 16/9) {
-  .fullscreen-bg__video {
-      height: 300%;
-      top: -100%;
-  }
-}
+// @media (min-aspect-ratio: 16/9) {
+//   .fullscreen-bg__video {
+//       height: 300%;
+//       top: -100%;
+//   }
+// }
 
-@media (max-aspect-ratio: 16/9) {
-  .fullscreen-bg__video {
-    width: 300%;
-    left: -100%;
-  }
-}
+// @media (max-aspect-ratio: 16/9) {
+//   .fullscreen-bg__video {
+//     width: 300%;
+//     left: -100%;
+//   }
+// }
 
-@media (max-width: 767px) {
-  .fullscreen-bg {
-    background: url(http://dev2.slicejack.com/fullscreen-video-demo/img/videoframe.jpg) center center / cover no-repeat;
-  }
-  .fullscreen-bg__video {
-    display: none;
-  }
-}
+// @media (max-width: 767px) {
+//   .fullscreen-bg {
+//     background: url(http://dev2.slicejack.com/fullscreen-video-demo/img/videoframe.jpg) center center / cover no-repeat;
+//   }
+//   .fullscreen-bg__video {
+//     display: none;
+//   }
+// }

@@ -1,5 +1,8 @@
 <!-- Jumbotron with search bar -->
-<div class="jumbotron text-center" style="background-image: linear-gradient(-180deg, #1111119e 60%, #111111a8 80%), url(https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1500&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D);">
+
+<div class="jumbotron-video text-center">
+
+  <%= video_tag ["code.mp4", "code.webm"], autoplay: :autoplay, loop: :loop, volume: 0, poster: 'https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1500&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D', class: 'video-home' %>
 
   <div class="container justify-content-center pizza">
     <h1 class="display-3">Get Outside.</h1>
@@ -11,6 +14,7 @@
     <% end %>
 
   </div>
+  <div class="video-home-overlay"></div>
 </div>
 
 <div class="expose section-home">
