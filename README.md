@@ -4,6 +4,8 @@ TL;DR: This was my final project during the last two weeks of the french coding 
 
 I would like to thank [@atmosfeer](http://github.com/atmosfeer) for being an awesome teacher.
 
+[![Demo of Konarciq](https://img.youtube.com/vi/sr6BoEmeDF0/0.jpg)](https://www.youtube.com/watch?v=sr6BoEmeDF0)
+
 ### Table of contents
 
 * [Context](#context)
