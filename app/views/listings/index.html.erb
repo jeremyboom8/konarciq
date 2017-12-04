@@ -15,12 +15,12 @@
             <div class="profile-card-body">
               <h5 class="small-h5"><i class="ion ion-location"></i><strong> DENMARK · NATURE</strong></h5>
               <h4 class="profile-card-first-name"><%= listing.title %></h4>
-              <%# if listing.events.exists? %>
-                <%# lowest_priced_event = listing.events.min_by { |h| h.price} %>
-                <!-- <h6 class="profile-card-interests" style="padding-bottom: 11px;">Starting at <%#= humanized_money_with_symbol(lowest_priced_event.price) %></h6> -->
-              <%# else %>
-                <!-- <h6 class="profile-card-interests">No classes atm</h6> -->
-              <%# end %>
+              <% if listing.events.exists? %>
+                <% lowest_priced_event = listing.events.min_by { |h| h.price} %>
+                <h6 class="profile-card-interests" style="padding-bottom: 11px;">Starting at <%= humanized_money_with_symbol(lowest_priced_event.price) %></h6>
+              <% else %>
+                <h6 class="profile-card-interests">No classes atm</h6>
+              <% end %>
             </div>
             <div style="@media (max-width: 576px) { display: none; }">
               <%= link_to "", listing_path(listing), class: "profile-card-link", target: "_blank" %>
