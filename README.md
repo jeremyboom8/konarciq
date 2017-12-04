@@ -1,8 +1,8 @@
 # Konarciq - Eco friendly adventures
 
-TL;DR: This was my final project during the last two weeks of the french coding bootcamp Le Wagon. Please note: this app is not ready for production. It is missing pundit, validations and many other things.
+TL;DR: This was my final project during the last two weeks of the french coding bootcamp Le Wagon. Please note: this app is not ready for production. It is missing pundit, validations and many other things. I would like to thank [@atmosfeer](http://github.com/atmosfeer) for being an awesome teacher.
 
-I would like to thank [@atmosfeer](http://github.com/atmosfeer) for being an awesome teacher.
+You can take a see a complete Demo (4m17s) of the project I made on Youtube by clicking on the image below.
 
 [![Demo of Konarciq](https://img.youtube.com/vi/sr6BoEmeDF0/0.jpg)](https://www.youtube.com/watch?v=sr6BoEmeDF0)
 
