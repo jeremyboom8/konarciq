@@ -38,10 +38,13 @@
       <% else %>
 
         <div class="col-xs-12">
+          <div style="margin: 20px;">
             <div>
-              <p style=`color: #565656`>Sorry, there were no results for <strong><%= params[:locationsearch] %></strong>. Try searching for 'Lund'.</p>
-              <p style="color: #565656">To see all available adventures, leave the search bar empty.</p>
+              <p style='color: #565656'>Oh no! There are no adventures in '<%= params[:locationsearch] %>' yet. Try searching for 'Lund'.</p>
+              <p style="color: #565656">Or click below to see all available adventures.</p>
+              <a class="btn btn-primary btn-lg" href="/listings">Explore</a>
             </div>
+          </div>
         </div>
 
       <% end %>
