@@ -6,9 +6,16 @@ gem 'money-rails'
 gem 'stripe'
 
 # Bootstrap and icons
-gem 'bootstrap', '~> 4.0.0.beta2.1'
+gem "bootstrap", ">= 4.1.2"
+# gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'sprockets-rails', '~> 3.0', '>= 3.0.4'
 gem 'ionicons-rails'
+
+# Github Vulnerability => CVE-2018-3741 (https://nvd.nist.gov/vuln/detail/CVE-2018-3741)
+gem "rails-html-sanitizer", ">= 1.0.4"
+
+# Github vulnerability => CVE-2018-16468 (https://nvd.nist.gov/vuln/detail/CVE-2018-16468)
+gem "loofah", ">= 2.2.3"
 
 # Geocoding with Gmaps
 gem "geocoder"
@@ -28,7 +35,7 @@ gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 gem 'cloudinary'
 gem 'attachinary', github: 'assembler/attachinary'
 gem 'jquery-fileupload-rails'
-gem 'coffee-rails'
+# gem 'coffee-rails'
 
 gem 'figaro'
 gem 'devise'
