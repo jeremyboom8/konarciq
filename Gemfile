@@ -8,7 +8,7 @@ gem 'stripe'
 # Bootstrap and icons
 gem "bootstrap", ">= 4.1.2"
 # gem 'bootstrap', '~> 4.0.0.beta2.1'
-gem 'sprockets-rails', '~> 3.0', '>= 3.0.4'
+# gem 'sprockets-rails', '~> 3.0', '>= 3.0.4'
 gem 'ionicons-rails'
 
 # Github Vulnerability => CVE-2018-3741 (https://nvd.nist.gov/vuln/detail/CVE-2018-3741)
@@ -16,6 +16,10 @@ gem "rails-html-sanitizer", ">= 1.0.4"
 
 # Github vulnerability => CVE-2018-16468 (https://nvd.nist.gov/vuln/detail/CVE-2018-16468)
 gem "loofah", ">= 2.2.3"
+
+# Two more vulnerabilities
+gem "ffi", ">= 1.9.24"
+gem "sprockets", ">= 3.7.2"
 
 # Geocoding with Gmaps
 gem "geocoder"
